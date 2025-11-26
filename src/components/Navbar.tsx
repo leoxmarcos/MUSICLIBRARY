@@ -71,7 +71,7 @@ const Navbar = () => {
               About Us
             </Link>
             <Link
-              href="#"
+              href="/contact"
               className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
               prefetch={false}
             >

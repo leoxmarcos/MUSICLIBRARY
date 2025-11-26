@@ -179,6 +179,12 @@
       "description": "Close up of piano keys.",
       "imageUrl": "https://images.unsplash.com/photo-1551564887-bfb65b16e454?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwYW5vJTIwa2V5c3xlbnwwfHx8fDE3NjQzODY2Njd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "piano keys"
+    },
+    {
+      "id": "contact-map",
+      "description": "A map showing the location of the music store.",
+      "imageUrl": "https://images.unsplash.com/photo-1532154187607-d766ed024aac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYXAlMjBsb2NhdGlvbnxlbnwwfHx8fDE3NjQxMTQwOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "map location"
     }
   ]
 }
