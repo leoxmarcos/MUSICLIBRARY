@@ -113,11 +113,7 @@ export default function HomePage() {
   const featuredBannerImage =
     PlaceHolderImages.find((img) => img.id === 'featured-banner') ||
     defaultImage;
-  const aboutUsImage1 =
-    PlaceHolderImages.find((img) => img.id === 'about-us-1') || defaultImage;
-  const aboutUsImage2 =
-    PlaceHolderImages.find((img) => img.id === 'about-us-2') || defaultImage;
-
+  
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
       <Navbar />
@@ -242,52 +238,6 @@ export default function HomePage() {
                 </Card>
               </Link>
             ))}
-          </div>
-        </section>
-
-        {/* About Us Section */}
-        <section className="w-full max-w-6xl mt-16 px-4 md:px-6 text-left">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
-            About Us
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="space-y-4">
-              <p className="text-muted-foreground">
-                Welcome to Muse, where our passion for music drives everything
-                we do. Founded in 2024, our mission is to provide musicians of
-                all levels with the finest instruments and a supportive
-                community. We believe that music is a universal language that
-                connects us all, and we are dedicated to helping you find your
-                voice.
-              </p>
-              <p className="text-muted-foreground">
-                Our library is more than just a place to rent or buy
-                instruments; it's a hub for creativity, learning, and
-                collaboration. From vintage guitars to modern synthesizers,
-                each piece in our collection is carefully curated to inspire
-                your next creation.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="relative h-64 w-full">
-                <Image
-                  src={aboutUsImage1.imageUrl}
-                  alt={aboutUsImage1.description}
-                  fill
-                  className="object-cover rounded-lg"
-                  data-ai-hint={aboutUsImage1.imageHint}
-                />
-              </div>
-              <div className="relative h-64 w-full">
-                <Image
-                  src={aboutUsImage2.imageUrl}
-                  alt={aboutUsImage2.description}
-                  fill
-                  className="object-cover rounded-lg"
-                  data-ai-hint={aboutUsImage2.imageHint}
-                />
-              </div>
-            </div>
           </div>
         </section>
       </main>

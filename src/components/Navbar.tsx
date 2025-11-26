@@ -64,7 +64,7 @@ const Navbar = () => {
         <div className="flex items-center gap-6">
           <nav className="hidden items-center gap-6 md:flex">
              <Link
-              href="#"
+              href="/about"
               className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
               prefetch={false}
             >
