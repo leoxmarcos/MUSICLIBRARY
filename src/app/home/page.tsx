@@ -130,8 +130,7 @@ export default function HomePage() {
               Welcome to your Music Library
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground mx-auto">
-              {welcomeMessages[currentMessageIndex]} You are logged in as{' '}
-              {user.email}.
+              {welcomeMessages[currentMessageIndex]}
             </p>
           </div>
         </section>
