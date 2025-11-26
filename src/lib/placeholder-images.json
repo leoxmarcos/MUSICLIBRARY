@@ -191,6 +191,24 @@
       "description": "A background image showing musical notes on a page.",
       "imageUrl": "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtdXNpYyUyMG5vdGVzfGVufDB8fHx8MTc2NDUzMDk0N3ww&ixlib=rb-4.1.0&q=80&w=1920",
       "imageHint": "music notes"
+    },
+    {
+      "id": "about-background",
+      "description": "A background image of a wall of guitars.",
+      "imageUrl": "https://images.unsplash.com/photo-1549298240-0d8e9a4d3853?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxndWl0YXIlMjB3YWxsfGVufDB8fHx8MTc2NDc2NzcyN3ww&ixlib=rb-4.1.0&q=80&w=1920",
+      "imageHint": "guitar wall"
+    },
+    {
+      "id": "catalog-background",
+      "description": "A background image of a stage with spotlights.",
+      "imageUrl": "https://images.unsplash.com/photo-1504307651254-356852057de0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdGFnZSUyMGxpZ2h0c3xlbnwwfHx8fDE3NjQ3Njc3NzJ8MA&ixlib=rb-4.1.0&q=80&w=1920",
+      "imageHint": "stage lights"
+    },
+    {
+      "id": "register-background",
+      "description": "A background image of a person writing music.",
+      "imageUrl": "https://images.unsplash.com/photo-1458724483782-a84333642345?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtdXNpYyUyMGNvbXBvc2l0aW9ufGVufDB8fHx8MTc2NDc2Nzg2Mnww&ixlib=rb-4.1.0&q=80&w=1920",
+      "imageHint": "music composition"
     }
   ]
 }

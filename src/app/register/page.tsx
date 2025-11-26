@@ -35,6 +35,8 @@ export default function RegisterPage() {
   const { toast } = useToast();
   const registerImage =
     PlaceHolderImages.find((img) => img.id === 'register-page') || defaultImage;
+  const registerBgImage =
+    PlaceHolderImages.find((img) => img.id === 'register-background') || defaultImage;
 
   useEffect(() => {
     if (user && firestore) {
@@ -86,9 +88,17 @@ export default function RegisterPage() {
   }
 
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4">
+    <main className="relative flex min-h-screen w-full flex-col items-center justify-center p-4">
+      <Image
+        src={registerBgImage.imageUrl}
+        alt={registerBgImage.description}
+        fill
+        className="object-cover -z-10"
+        data-ai-hint={registerBgImage.imageHint}
+      />
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm -z-10" />
       <div className="w-full max-w-md">
-        <Card>
+        <Card className="bg-card/80">
           <CardHeader className="text-center">
             <div className="mb-4 flex justify-center">
               <div className="relative h-24 w-24">

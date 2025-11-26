@@ -11,9 +11,19 @@ export default function AboutPage() {
     PlaceHolderImages.find((img) => img.id === 'about-us-1') || defaultImage;
   const aboutUsImage2 =
     PlaceHolderImages.find((img) => img.id === 'about-us-2') || defaultImage;
+  const aboutBgImage =
+    PlaceHolderImages.find((img) => img.id === 'about-background') || defaultImage;
 
   return (
-    <div className="flex min-h-screen w-full flex-col bg-background">
+    <div className="relative flex min-h-screen w-full flex-col">
+      <Image
+        src={aboutBgImage.imageUrl}
+        alt={aboutBgImage.description}
+        fill
+        className="object-cover -z-10"
+        data-ai-hint={aboutBgImage.imageHint}
+      />
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm -z-10" />
       <Navbar />
       <main className="flex-1 p-8 pt-24">
         <div className="container mx-auto">

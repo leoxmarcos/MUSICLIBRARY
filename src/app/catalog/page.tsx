@@ -69,6 +69,8 @@ const instrumentData: Instrument[] = instruments.map((inst, index) => ({
 
 export default function CatalogPage() {
   const { addToCart } = useCart();
+  const catalogBgImage =
+    PlaceHolderImages.find((img) => img.id === 'catalog-background') || defaultImage;
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-IN', {
@@ -79,7 +81,15 @@ export default function CatalogPage() {
   };
 
   return (
-    <div className="flex min-h-screen w-full flex-col bg-background">
+    <div className="relative flex min-h-screen w-full flex-col">
+      <Image
+        src={catalogBgImage.imageUrl}
+        alt={catalogBgImage.description}
+        fill
+        className="object-cover -z-10"
+        data-ai-hint={catalogBgImage.imageHint}
+      />
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm -z-10" />
       <Navbar />
       <main className="flex-1 p-8 pt-24">
         <div className="container mx-auto">
@@ -94,7 +104,7 @@ export default function CatalogPage() {
             {instrumentData.map((instrument) => (
               <Dialog key={instrument.id}>
                 <Card
-                  className="overflow-hidden bg-card text-card-foreground transition-shadow hover:shadow-lg hover:shadow-primary/20 flex flex-col"
+                  className="overflow-hidden bg-card/80 text-card-foreground transition-shadow hover:shadow-lg hover:shadow-primary/20 flex flex-col"
                 >
                   <DialogTrigger asChild>
                     <div className="cursor-pointer">
