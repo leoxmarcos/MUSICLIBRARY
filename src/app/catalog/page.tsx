@@ -10,14 +10,6 @@ import {
   CardHeader,
 } from '@/components/ui/card';
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
-import {
   PlaceHolderImages,
   defaultImage,
 } from '@/lib/placeholder-images';
@@ -103,84 +95,74 @@ export default function CatalogPage() {
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {instrumentData.map((instrument) => (
-              <Dialog key={instrument.id}>
-                <Card
-                  className="overflow-hidden bg-card/80 text-card-foreground transition-shadow hover:shadow-lg hover:shadow-primary/20 flex flex-col"
-                >
-                  <DialogTrigger asChild>
-                    <div className="cursor-pointer">
-                      <CardHeader className="p-0">
-                        <div className="relative aspect-[4/3] w-full">
-                          <Image
-                            src={instrument.image.imageUrl}
-                            alt={instrument.image.description}
-                            fill
-                            className="object-cover"
-                            data-ai-hint={instrument.image.imageHint}
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          />
+              <Card
+                key={instrument.id}
+                className="overflow-hidden bg-card/80 text-card-foreground transition-shadow hover:shadow-lg hover:shadow-primary/20 flex flex-col group"
+              >
+                <CardHeader className="p-0 relative">
+                  <div className="relative aspect-[4/3] w-full">
+                    <Image
+                      src={instrument.image.imageUrl}
+                      alt={instrument.image.description}
+                      fill
+                      className="object-cover"
+                      data-ai-hint={instrument.image.imageHint}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                     <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4 text-primary-foreground">
+                        <h3 className="text-lg font-bold mb-4">{instrument.name} History</h3>
+                        <div className="space-y-3 text-sm w-full">
+                           <div className="flex items-center gap-3">
+                            <Landmark className="h-5 w-5 text-primary shrink-0" />
+                            <div>
+                                <p className="font-semibold">Origin</p>
+                                <p className="text-xs text-muted-foreground">{instrument.countryOfOrigin}</p>
+                            </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                            <Calendar className="h-5 w-5 text-primary shrink-0" />
+                            <div>
+                                <p className="font-semibold">First Made</p>
+                                <p className="text-xs text-muted-foreground">{instrument.yearMade}</p>
+                            </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                            <Globe className="h-5 w-5 text-primary shrink-0" />
+                            <div>
+                                <p className="font-semibold">First Played</p>
+                                <p className="text-xs text-muted-foreground">{instrument.firstPlayed}</p>
+                            </div>
+                            </div>
                         </div>
-                      </CardHeader>
-                      <CardContent className="p-4 flex-grow space-y-2">
-                          <h2 className="text-xl font-semibold">
-                              {instrument.name}
-                          </h2>
-                          <div className="flex justify-between items-baseline">
-                              <div>
-                                  <p className="text-sm text-muted-foreground">Rent</p>
-                                  <p className="text-lg font-bold text-primary">
-                                      {formatPrice(instrument.rentAmount)}/mo
-                                  </p>
-                              </div>
-                              <div>
-                                  <p className="text-sm text-muted-foreground text-right">Buy</p>
-                                  <p className="text-lg font-bold text-primary">
-                                      {formatPrice(instrument.buyAmount)}
-                                  </p>
-                              </div>
-                          </div>
-                      </CardContent>
-                    </div>
-                  </DialogTrigger>
-                  <CardFooter className="p-4 pt-0 mt-auto">
-                    <Button size="sm" className="w-full glowing-btn" onClick={() => addToCart(instrument)}>
-                      <ShoppingCart className="mr-2 h-4 w-4" />
-                      Add to Cart
-                    </Button>
-                  </CardFooter>
-                </Card>
-                <DialogContent className="sm:max-w-[425px]">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl">{instrument.name}</DialogTitle>
-                    <DialogDescription>
-                      A brief history of the {instrument.name}.
-                    </DialogDescription>
-                  </DialogHeader>
-                  <div className="grid gap-4 py-4">
-                    <div className="flex items-center gap-4">
-                      <Landmark className="h-5 w-5 text-primary" />
-                      <div className="text-sm">
-                        <p className="font-semibold">Country of Origin</p>
-                        <p className="text-muted-foreground">{instrument.countryOfOrigin}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <Calendar className="h-5 w-5 text-primary" />
-                       <div className="text-sm">
-                        <p className="font-semibold">First Made</p>
-                        <p className="text-muted-foreground">{instrument.yearMade}</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <Globe className="h-5 w-5 text-primary" />
-                       <div className="text-sm">
-                        <p className="font-semibold">First Played</p>
-                        <p className="text-muted-foreground">{instrument.firstPlayed}</p>
-                      </div>
                     </div>
                   </div>
-                </DialogContent>
-              </Dialog>
+                </CardHeader>
+                <CardContent className="p-4 flex-grow space-y-2">
+                    <h2 className="text-xl font-semibold">
+                        {instrument.name}
+                    </h2>
+                    <div className="flex justify-between items-baseline">
+                        <div>
+                            <p className="text-sm text-muted-foreground">Rent</p>
+                            <p className="text-lg font-bold text-primary">
+                                {formatPrice(instrument.rentAmount)}/mo
+                            </p>
+                        </div>
+                        <div>
+                            <p className="text-sm text-muted-foreground text-right">Buy</p>
+                            <p className="text-lg font-bold text-primary">
+                                {formatPrice(instrument.buyAmount)}
+                            </p>
+                        </div>
+                    </div>
+                </CardContent>
+                <CardFooter className="p-4 pt-0 mt-auto">
+                  <Button size="sm" className="w-full glowing-btn" onClick={() => addToCart(instrument)}>
+                    <ShoppingCart className="mr-2 h-4 w-4" />
+                    Add to Cart
+                  </Button>
+                </CardFooter>
+              </Card>
             ))}
           </div>
         </div>
