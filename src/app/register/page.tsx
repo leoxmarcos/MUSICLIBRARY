@@ -167,7 +167,7 @@ export default function RegisterPage() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full font-semibold"
+                  className="w-full font-semibold glowing-btn"
                 >
                   Register
                 </Button>
@@ -175,7 +175,7 @@ export default function RegisterPage() {
                   <Button
                     size="lg"
                     variant="link"
-                    className="w-full font-semibold"
+                    className="w-full font-semibold text-accent"
                   >
                     Back to Login
                   </Button>

@@ -4,40 +4,41 @@
 
 @layer base {
   :root {
-    --background: 210 100% 95%; /* Light Blue */
-    --foreground: 240 10% 3.9%; /* Dark Blue-Gray */
-    --card: 0 0% 100%; /* White */
+    --background: 225 100% 98%; /* Soft Pastel Blue */
+    --foreground: 240 10% 3.9%; /* Dark Blue-Gray for readability */
+    --card: 0 0% 100%; /* Clean White */
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 217 91% 60%; /* Blue */
+    --primary: 240 100% 60%; /* Electric Blue */
     --primary-foreground: 0 0% 98%;
-    --secondary: 142 71% 45%; /* Green */
+    --secondary: 300 100% 50%; /* Magenta */
     --secondary-foreground: 0 0% 98%;
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 220 8.9% 43.1%;
-    --accent: 48 96% 53%; /* Yellow */
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 270 100% 55%; /* Purple */
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%; /* Red */
     --destructive-foreground: 0 0% 98%;
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 217 91% 60%;
-    --chart-1: 217 91% 60%;
-    --chart-2: 142 71% 45%;
-    --chart-3: 48 96% 53%;
+    --ring: 270 100% 55%; /* Purple for focus rings */
+    --chart-1: 240 100% 60%; /* Electric Blue */
+    --chart-2: 300 100% 50%; /* Magenta */
+    --chart-3: 270 100% 55%; /* Purple */
     --chart-4: 0 84.2% 60.2%;
-    --chart-5: 270 80% 65%;
+    --chart-5: 48 96% 53%; /* Adding a yellow for variety */
     --radius: 0.5rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 10% 3.9%;
-    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary: 240 100% 60%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 220 14.3% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-ring: 270 100% 55%;
   }
+
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -45,27 +46,27 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 217 91% 60%; /* Blue */
+    --primary: 240 100% 70%; /* Brighter Electric Blue */
     --primary-foreground: 210 40% 98%;
-    --secondary: 142 71% 45%; /* Green */
+    --secondary: 300 100% 60%; /* Brighter Magenta */
     --secondary-foreground: 355.7 100% 97.3%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 48 96% 53%; /* Yellow */
-    --accent-foreground: 60 9.1% 9.8%;
+    --accent: 270 100% 65%; /* Brighter Purple */
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%; /* Red */
     --destructive-foreground: 0 0% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 217 91% 60%;
+    --ring: 270 100% 65%; /* Purple */
     --sidebar-background: 240 10% 3.9%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary: 240 100% 70%;
     --sidebar-primary-foreground: 210 40% 98%;
     --sidebar-accent: 217.2 32.6% 17.5%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-ring: 270 100% 65%;
   }
 }
 
@@ -75,5 +76,11 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .glowing-btn {
+    @apply bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-accent/50;
   }
 }

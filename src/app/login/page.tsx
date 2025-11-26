@@ -97,7 +97,7 @@ export default function LoginPage() {
               <div className="mt-8 flex flex-col gap-4">
                 <Button
                   size="lg"
-                  className="w-full font-semibold shadow-lg"
+                  className="w-full font-semibold glowing-btn"
                   type="submit"
                 >
                   Log In
@@ -106,7 +106,7 @@ export default function LoginPage() {
                   <Button
                     size="lg"
                     variant="link"
-                    className="w-full font-semibold"
+                    className="w-full font-semibold text-accent"
                   >
                     Registration
                   </Button>
