@@ -99,13 +99,13 @@
     {
       "id": "synthesizer",
       "description": "A vintage synthesizer with many knobs.",
-      "imageUrl": "https://images.unsplash.com/photo-1634041551278-a843c116ff28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzeW50aGVzaXplcnxlbnwwfHx8fDE3NjQxOTIxODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1634041551278-a843c116ff28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzeW50aGVzaXplcnxlbnwwfHx8fDE3NjQxOTIxODl8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "synthesizer"
     },
     {
       "id": "bongos",
       "description": "A pair of bongo drums.",
-      "imageUrl": "https://images.unsplash.com/photo-1761470629665-81a786ef023a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Ym9uZ29zfGVufDB8fHx8MTc2NDE5MjE4OXww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1629055929130-ebbe08f76cdf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxib25nbyUyMGluc3RydW1lbnR8ZW58MHx8fHwxNzY0MTkyMzEzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "bongos"
     },
     {
@@ -123,13 +123,13 @@
     {
       "id": "flute",
       "description": "A silver concert flute.",
-      "imageUrl": "https://images.unsplash.com/photo-1710075554684-88f369e05e99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmbHV0ZXxlbnwwfHx8fDE3NjQxOTIxODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1710075554684-88f369e05e99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxmbHV0ZXxlbnwwfHx8fDE3NjQxOTIxODl8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "flute"
     },
     {
       "id": "clarinet",
       "description": "A wooden clarinet.",
-      "imageUrl": "https://images.unsplash.com/photo-1569791832138-fbdd9a500384?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjbGFyaW5ldHxlbnwwfHx8fDE3NjQxOTIxODl8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1569791832138-fbdd9a500384?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjbGFyaW5ldHxlbnwwfHx8fDE3NjQxOTIxODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "clarinet"
     },
     {
@@ -141,13 +141,13 @@
     {
       "id": "accordion",
       "description": "A red piano accordion.",
-      "imageUrl": "https://images.unsplash.com/photo-1559396306-c0b1eab593f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhY2NvcmRpb258ZW58MHx8fHwxNzY0MTkyMTg5fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1559396306-c0b1eab593f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhY2NvcmRpb258ZW58MHx8fHwxNzY0MTkyMTg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "accordion"
     },
     {
       "id": "ukulele",
       "description": "A small four-stringed ukulele.",
-      "imageUrl": "https://images.unsplash.com/photo-1622357373129-7b3eb326eba8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx1a3VsZWxlfGVufDB8fHx8MTc2NDE5MjE4OXww&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1622357373129-7b3eb326eba8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx1a3VsZWxlfGVufDB8fHx8MTc2NDE5MjE4OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "ukulele"
     },
     {
@@ -159,7 +159,7 @@
     {
       "id": "mandolin",
       "description": "An eight-string mandolin.",
-      "imageUrl": "https://images.unsplash.com/photo-1657288281043-6420eaa85139?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYW5kb2xpbnxlbnwwfHx8fDE3NjQxOTIxODl8MA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1657288281043-6420eaa85139?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYW5kb2xpbnxlbnwwfHx8fDE3NjQxOTIxODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "mandolin"
     },
     {
@@ -171,7 +171,7 @@
     {
       "id": "tabla",
       "description": "A pair of Indian tabla drums.",
-      "imageUrl": "https://images.unsplash.com/photo-1653246577296-3b047aabd8e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGFibGF8ZW58MHx8fHwxNzY0MTkyMTg5fDA&ixlib-rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1653246577296-3b047aabd8e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dGFibGF8ZW58MHx8fHwxNzY0MTkyMTg5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "tabla"
     },
     {
