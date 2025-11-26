@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Music, User as UserIcon } from 'lucide-react';
+import { User as UserIcon } from 'lucide-react';
 import { useAuth, useUser } from '@/firebase';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
@@ -15,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { GuitarLogo } from './GuitarLogo';
 
 const Navbar = () => {
   const auth = useAuth();
@@ -36,26 +37,32 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm shadow-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="/home" className="flex items-center gap-2" prefetch={false}>
-          <Music className="h-6 w-6 text-primary" />
-          <span className="text-xl font-bold">Muse</span>
-        </Link>
+        <nav className="flex items-center gap-6">
+          <Link
+            href="/home"
+            className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
+            prefetch={false}
+          >
+            Home
+          </Link>
+          <Link
+            href="/catalog"
+            className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
+            prefetch={false}
+          >
+            Catalog
+          </Link>
+        </nav>
+
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <Link href="/home" className="flex items-center gap-2" prefetch={false}>
+            <GuitarLogo className="h-10 w-auto text-primary" />
+            <span className="sr-only">Muse Home</span>
+          </Link>
+        </div>
+
         <div className="flex items-center gap-6">
           <nav className="hidden items-center gap-6 md:flex">
-            <Link
-              href="/home"
-              className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
-              prefetch={false}
-            >
-              Home
-            </Link>
-            <Link
-              href="/catalog"
-              className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
-              prefetch={false}
-            >
-              Catalog
-            </Link>
             <Link
               href="#"
               className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
@@ -64,7 +71,6 @@ const Navbar = () => {
               Contact
             </Link>
           </nav>
-
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
