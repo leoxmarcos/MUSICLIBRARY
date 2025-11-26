@@ -53,7 +53,7 @@ export default function LoadingScreen() {
                   Log In
                 </Button>
               </Link>
-              <Link href="/login" passHref>
+              <Link href="/register" passHref>
                 <Button size="lg" variant="secondary" className="w-full font-semibold" disabled={progress < 100}>
                   Registration
                 </Button>

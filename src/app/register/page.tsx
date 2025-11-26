@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
@@ -15,14 +15,18 @@ export default function LoginPage() {
               <Music className="h-12 w-12 text-primary" />
             </div>
             <CardTitle className="text-4xl font-bold tracking-tight text-foreground">
-              Muse
+              Create Account
             </CardTitle>
             <CardDescription className="text-muted-foreground">
-              Sign in to unlock your music world.
+              Join Muse and start your musical journey.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="name">Name</Label>
+                <Input id="name" type="text" placeholder="John Doe" required />
+              </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -39,11 +43,11 @@ export default function LoginPage() {
             </div>
             <div className="mt-8 flex flex-col gap-4">
               <Button size="lg" className="w-full font-semibold shadow-lg shadow-primary/20">
-                Log In
+                Register
               </Button>
-              <Link href="/register" passHref>
+              <Link href="/login" passHref>
                 <Button size="lg" variant="secondary" className="w-full font-semibold">
-                  Registration
+                  Back to Login
                 </Button>
               </Link>
             </div>
