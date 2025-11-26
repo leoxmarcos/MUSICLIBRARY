@@ -1,0 +1,51 @@
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the music library application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user entity."
+        },
+        "loginId": {
+          "type": "string",
+          "description": "The user's login ID."
+        }
+      },
+      "required": [
+        "id",
+        "loginId"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profiles. Users can only access their own profile. Includes denormalized 'userId' for authorization independence. userId MUST match request.auth.uid.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user. Must match request.auth.uid."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "This design prioritizes simplicity and security for user authentication. It directly reflects the provided entities and focuses on path-based ownership. The `users/{userId}` collection stores user profiles.  Authorization is straightforward: users can only access their own documents in the `/users/{userId}` collection. This is enforced through path-based rules, eliminating the need for complex `get()` calls and ensuring Authorization Independence. QAPs are inherently supported as `list` operations on `/users` are generally restricted, and access to individual `/users/{userId}` documents is controlled by matching the `userId` parameter to the `request.auth.uid`. There are no collaborative features, and all user-related data is directly owned by the user, simplifying the security model."
+  }
+}
