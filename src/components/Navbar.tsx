@@ -38,27 +38,27 @@ const Navbar = () => {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/home" className="flex items-center gap-2" prefetch={false}>
           <Music className="h-6 w-6 text-primary" />
-          <span className="text-xl font-bold text-foreground">Muse</span>
+          <span className="text-xl font-bold">Muse</span>
         </Link>
         <div className="flex items-center gap-6">
           <nav className="hidden items-center gap-6 md:flex">
             <Link
               href="/home"
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary hover:underline underline-offset-4"
+              className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
               prefetch={false}
             >
               Home
             </Link>
             <Link
               href="/catalog"
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary hover:underline underline-offset-4"
+              className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
               prefetch={false}
             >
               Catalog
             </Link>
             <Link
               href="#"
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary hover:underline underline-offset-4"
+              className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
               prefetch={false}
             >
               Contact

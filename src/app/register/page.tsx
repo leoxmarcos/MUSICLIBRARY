@@ -106,15 +106,15 @@ export default function RegisterPage() {
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
-        <Card className="border-0 bg-card/80 backdrop-blur-sm shadow-2xl shadow-primary/10">
+        <Card>
           <CardHeader className="text-center">
             <div className="mb-4 flex justify-center">
-              <PianoIcon className="h-16 w-16 text-foreground drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
+              <PianoIcon className="h-16 w-16 text-foreground" />
             </div>
-            <CardTitle className="text-4xl font-bold tracking-tight text-foreground">
+            <CardTitle className="text-4xl font-bold tracking-tight">
               Create Account
             </CardTitle>
-            <CardDescription className="text-muted-foreground">
+            <CardDescription>
               Join Muse and start your musical journey.
             </CardDescription>
           </CardHeader>
@@ -122,7 +122,7 @@ export default function RegisterPage() {
             <form onSubmit={handleRegister}>
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className="text-foreground/80">
+                  <Label htmlFor="name">
                     Name
                   </Label>
                   <Input
@@ -136,7 +136,7 @@ export default function RegisterPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="text-foreground/80">
+                  <Label htmlFor="email">
                     Email
                   </Label>
                   <Input
@@ -150,7 +150,7 @@ export default function RegisterPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="password" className="text-foreground/80">
+                  <Label htmlFor="password">
                     Password
                   </Label>
                   <Input
@@ -167,7 +167,7 @@ export default function RegisterPage() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full font-semibold shadow-lg bg-gradient-to-r from-primary to-accent text-primary-foreground transition-all hover:brightness-110 hover:shadow-accent/40"
+                  className="w-full font-semibold"
                 >
                   Register
                 </Button>
@@ -175,7 +175,7 @@ export default function RegisterPage() {
                   <Button
                     size="lg"
                     variant="link"
-                    className="w-full font-semibold text-primary hover:text-primary/90"
+                    className="w-full font-semibold"
                   >
                     Back to Login
                   </Button>
