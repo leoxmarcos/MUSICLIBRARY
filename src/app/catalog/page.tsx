@@ -23,6 +23,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { ShoppingCart, Landmark, Calendar, Globe } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
+import Footer from '@/components/Footer';
 
 export type Instrument = {
   id: string;
@@ -173,6 +174,7 @@ export default function CatalogPage() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

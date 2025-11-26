@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import { PlaceHolderImages, defaultImage } from '@/lib/placeholder-images';
 import { MusicBookLogo } from '@/components/GuitarLogo';
+import Footer from '@/components/Footer';
 
 export default function AboutPage() {
   const aboutUsImage1 =
@@ -76,6 +77,7 @@ export default function AboutPage() {
           </section>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

@@ -16,7 +16,7 @@ import {
 import { Card, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages, defaultImage } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
-import { Facebook, Twitter, Instagram } from 'lucide-react';
+import Footer from '@/components/Footer';
 
 const newsItems = [
   {
@@ -193,24 +193,7 @@ export default function HomePage() {
         </section>
 
       </main>
-      <footer className="w-full bg-card py-6">
-        <div className="container mx-auto flex flex-col items-center justify-center gap-4 px-4 md:px-6">
-          <p className="text-sm text-muted-foreground">
-            Follow us on social media
-          </p>
-          <div className="flex gap-4">
-            <Link href="#" className="text-muted-foreground hover:text-primary">
-              <Twitter className="h-6 w-6" />
-            </Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary">
-              <Facebook className="h-6 w-6" />
-            </Link>
-            <Link href="#" className="text-muted-foreground hover:text-primary">
-              <Instagram className="h-6 w-6" />
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

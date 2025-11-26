@@ -13,6 +13,7 @@ import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages, defaultImage } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import Footer from '@/components/Footer';
 
 export default function ContactPage() {
   const [name, setName] = useState('');
@@ -153,6 +154,7 @@ export default function ContactPage() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
