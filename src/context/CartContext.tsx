@@ -12,6 +12,7 @@ interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: Instrument) => void;
   removeFromCart: (itemId: string) => void;
+  clearCart: () => void;
   cartCount: number;
   totalPrice: number;
 }
@@ -64,6 +65,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  }
+
   const cartCount = cartItems.reduce((count, item) => count + item.quantity, 0);
 
   // For this example, we'll use the 'buyAmount' for the total price calculation.
@@ -74,6 +79,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     cartItems,
     addToCart,
     removeFromCart,
+    clearCart,
     cartCount,
     totalPrice,
   };
