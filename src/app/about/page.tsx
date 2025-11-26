@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import { PlaceHolderImages, defaultImage } from '@/lib/placeholder-images';
-import { GuitarLogo } from '@/components/GuitarLogo';
+import { MusicBookLogo } from '@/components/GuitarLogo';
 
 export default function AboutPage() {
   const aboutUsImage1 =
@@ -18,7 +18,7 @@ export default function AboutPage() {
         <div className="container mx-auto">
           <section className="w-full py-12">
             <div className="mx-auto max-w-4xl text-center">
-              <GuitarLogo className="mx-auto mb-6 h-20 w-auto" />
+              <MusicBookLogo className="mx-auto mb-6 h-20 w-auto" />
               <h1 className="text-5xl font-bold tracking-tight text-foreground">
                 About Muse
               </h1>

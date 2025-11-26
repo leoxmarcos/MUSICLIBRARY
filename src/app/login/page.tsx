@@ -15,7 +15,7 @@ import {
 import Link from 'next/link';
 import { useAuth, useUser, initiateEmailSignIn } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
-import { GuitarLogo } from '@/components/GuitarLogo';
+import { MusicBookLogo } from '@/components/GuitarLogo';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -58,7 +58,7 @@ export default function LoginPage() {
         <Card>
           <CardHeader className="text-center">
             <div className="mb-4 flex justify-center">
-              <GuitarLogo className="h-12 w-auto" />
+              <MusicBookLogo className="h-12 w-auto" />
             </div>
             <CardDescription>
               Sign in to unlock your music world.

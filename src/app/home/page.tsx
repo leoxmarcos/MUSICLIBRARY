@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { useUser } from '@/firebase';
-import { GuitarLogo } from '@/components/GuitarLogo';
+import { MusicBookLogo } from '@/components/GuitarLogo';
 import Image from 'next/image';
 import {
   Carousel,
@@ -121,7 +121,7 @@ export default function HomePage() {
         {/* Welcome Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container mx-auto px-4 md:px-6">
-            <GuitarLogo className="h-24 w-auto mb-4 mx-auto" />
+            <MusicBookLogo className="h-24 w-auto mb-4 mx-auto" />
             <h1 className="text-5xl font-bold tracking-tight text-foreground">
               Welcome to your Music Library
             </h1>
