@@ -7,7 +7,6 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from '@/components/ui/card';
 import {
   PlaceHolderImages,
@@ -18,33 +17,34 @@ import { ShoppingCart } from 'lucide-react';
 
 type Instrument = {
   name: string;
-  price: number;
+  rentAmount: number;
+  buyAmount: number;
   image: (typeof PlaceHolderImages)[0];
 };
 
 const instruments: Instrument[] = [
-  { name: 'Acoustic Guitar', price: 25000, image: PlaceHolderImages.find(img => img.id === 'guitar') || defaultImage },
-  { name: 'Electric Guitar', price: 45000, image: PlaceHolderImages.find(img => img.id === 'electric-guitar') || defaultImage },
-  { name: 'Bass Guitar', price: 35000, image: PlaceHolderImages.find(img => img.id === 'bass-guitar') || defaultImage },
-  { name: 'Grand Piano', price: 450000, image: PlaceHolderImages.find(img => img.id === 'piano') || defaultImage },
-  { name: 'Digital Keyboard', price: 30000, image: PlaceHolderImages.find(img => img.id === 'keyboard') || defaultImage },
-  { name: 'Synthesizer', price: 75000, image: PlaceHolderImages.find(img => img.id === 'synthesizer') || defaultImage },
-  { name: 'Drum Kit', price: 60000, image: PlaceHolderImages.find(img => img.id === 'drums') || defaultImage },
-  { name: 'Bongos', price: 8000, image: PlaceHolderImages.find(img => img.id === 'bongos') || defaultImage },
-  { name: 'Congas', price: 22000, image: PlaceHolderImages.find(img => img.id === 'congas') || defaultImage },
-  { name: 'Violin', price: 18000, image: PlaceHolderImages.find(img => img.id === 'violin') || defaultImage },
-  { name: 'Cello', price: 40000, image: PlaceHolderImages.find(img => img.id === 'cello') || defaultImage },
-  { name: 'Trumpet', price: 15000, image: PlaceHolderImages.find(img => img.id === 'trumpet') || defaultImage },
-  { name: 'Saxophone', price: 55000, image: PlaceHolderImages.find(img => img.id === 'saxophone') || defaultImage },
-  { name: 'Flute', price: 12000, image: PlaceHolderImages.find(img => img.id === 'flute') || defaultImage },
-  { name: 'Clarinet', price: 20000, image: PlaceHolderImages.find(img => img.id === 'clarinet') || defaultImage },
-  { name: 'Harmonica', price: 3000, image: PlaceHolderImages.find(img => img.id === 'harmonica') || defaultImage },
-  { name: 'Accordion', price: 38000, image: PlaceHolderImages.find(img => img.id === 'accordion') || defaultImage },
-  { name: 'Ukulele', price: 5000, image: PlaceHolderImages.find(img => img.id === 'ukulele') || defaultImage },
-  { name: 'Banjo', price: 28000, image: PlaceHolderImages.find(img => img.id === 'banjo') || defaultImage },
-  { name: 'Mandolin', price: 16000, image: PlaceHolderImages.find(img => img.id === 'mandolin') || defaultImage },
-  { name: 'Sitar', price: 32000, image: PlaceHolderImages.find(img => img.id === 'sitar') || defaultImage },
-  { name: 'Tabla', price: 10000, image: PlaceHolderImages.find(img => img.id === 'tabla') || defaultImage },
+  { name: 'Acoustic Guitar', rentAmount: 1500, buyAmount: 25000, image: PlaceHolderImages.find(img => img.id === 'guitar') || defaultImage },
+  { name: 'Electric Guitar', rentAmount: 2500, buyAmount: 45000, image: PlaceHolderImages.find(img => img.id === 'electric-guitar') || defaultImage },
+  { name: 'Bass Guitar', rentAmount: 2000, buyAmount: 35000, image: PlaceHolderImages.find(img => img.id === 'bass-guitar') || defaultImage },
+  { name: 'Grand Piano', rentAmount: 20000, buyAmount: 450000, image: PlaceHolderImages.find(img => img.id === 'piano') || defaultImage },
+  { name: 'Digital Keyboard', rentAmount: 1800, buyAmount: 30000, image: PlaceHolderImages.find(img => img.id === 'keyboard') || defaultImage },
+  { name: 'Synthesizer', rentAmount: 4000, buyAmount: 75000, image: PlaceHolderImages.find(img => img.id === 'synthesizer') || defaultImage },
+  { name: 'Drum Kit', rentAmount: 3500, buyAmount: 60000, image: PlaceHolderImages.find(img => img.id === 'drums') || defaultImage },
+  { name: 'Bongos', rentAmount: 500, buyAmount: 8000, image: PlaceHolderImages.find(img => img.id === 'bongos') || defaultImage },
+  { name: 'Congas', rentAmount: 1200, buyAmount: 22000, image: PlaceHolderImages.find(img => img.id === 'congas') || defaultImage },
+  { name: 'Violin', rentAmount: 1000, buyAmount: 18000, image: PlaceHolderImages.find(img => img.id === 'violin') || defaultImage },
+  { name: 'Cello', rentAmount: 2200, buyAmount: 40000, image: PlaceHolderImages.find(img => img.id === 'cello') || defaultImage },
+  { name: 'Trumpet', rentAmount: 900, buyAmount: 15000, image: PlaceHolderImages.find(img => img.id === 'trumpet') || defaultImage },
+  { name: 'Saxophone', rentAmount: 3000, buyAmount: 55000, image: PlaceHolderImages.find(img => img.id === 'saxophone') || defaultImage },
+  { name: 'Flute', rentAmount: 700, buyAmount: 12000, image: PlaceHolderImages.find(img => img.id === 'flute') || defaultImage },
+  { name: 'Clarinet', rentAmount: 1100, buyAmount: 20000, image: PlaceHolderImages.find(img => img.id === 'clarinet') || defaultImage },
+  { name: 'Harmonica', rentAmount: 200, buyAmount: 3000, image: PlaceHolderImages.find(img => img.id === 'harmonica') || defaultImage },
+  { name: 'Accordion', rentAmount: 2000, buyAmount: 38000, image: PlaceHolderImages.find(img => img.id === 'accordion') || defaultImage },
+  { name: 'Ukulele', rentAmount: 300, buyAmount: 5000, image: PlaceHolderImages.find(img => img.id === 'ukulele') || defaultImage },
+  { name: 'Banjo', rentAmount: 1500, buyAmount: 28000, image: PlaceHolderImages.find(img => img.id === 'banjo') || defaultImage },
+  { name: 'Mandolin', rentAmount: 900, buyAmount: 16000, image: PlaceHolderImages.find(img => img.id === 'mandolin') || defaultImage },
+  { name: 'Sitar', rentAmount: 1800, buyAmount: 32000, image: PlaceHolderImages.find(img => img.id === 'sitar') || defaultImage },
+  { name: 'Tabla', rentAmount: 600, buyAmount: 10000, image: PlaceHolderImages.find(img => img.id === 'tabla') || defaultImage },
 ];
 
 export default function CatalogPage() {
@@ -86,16 +86,27 @@ export default function CatalogPage() {
                     />
                   </div>
                 </CardHeader>
-                <CardContent className="p-4 flex-grow">
-                  <CardTitle className="text-xl font-semibold">
-                    {instrument.name}
-                  </CardTitle>
+                <CardContent className="p-4 flex-grow space-y-2">
+                    <h2 className="text-xl font-semibold">
+                        {instrument.name}
+                    </h2>
+                    <div className="flex justify-between items-baseline">
+                        <div>
+                            <p className="text-sm text-muted-foreground">Rent</p>
+                            <p className="text-lg font-bold text-primary">
+                                {formatPrice(instrument.rentAmount)}/mo
+                            </p>
+                        </div>
+                        <div>
+                            <p className="text-sm text-muted-foreground text-right">Buy</p>
+                             <p className="text-lg font-bold text-primary">
+                                {formatPrice(instrument.buyAmount)}
+                            </p>
+                        </div>
+                    </div>
                 </CardContent>
-                <CardFooter className="p-4 pt-0 flex justify-between items-center">
-                  <p className="text-lg font-bold text-primary">
-                    {formatPrice(instrument.price)}
-                  </p>
-                   <Button size="sm" className="glowing-btn">
+                <CardFooter className="p-4 pt-0">
+                   <Button size="sm" className="w-full glowing-btn">
                     <ShoppingCart className="mr-2 h-4 w-4" />
                     Add to Cart
                   </Button>
