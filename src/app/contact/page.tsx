@@ -45,7 +45,7 @@ export default function ContactPage() {
     setMessage('');
   };
   
-  const address = "123 Harmony Lane, Melody City, Musicland 54321";
+  const address = "ABES Engineering College, Ghaziabad 201009";
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   return (
