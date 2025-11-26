@@ -1,8 +1,26 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Link from "next/link";
+'use client';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import Link from 'next/link';
+import {
+  useAuth,
+  useUser,
+  initiateEmailSignUp,
+  useFirestore,
+  setDocumentNonBlocking,
+} from '@/firebase';
+import { useToast } from '@/hooks/use-toast';
+import { doc } from 'firebase/firestore';
 
 const PianoIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -26,15 +44,56 @@ const PianoIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-
 export default function RegisterPage() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const auth = useAuth();
+  const firestore = useFirestore();
+  const { user, isUserLoading } = useUser();
+  const router = useRouter();
+  const { toast } = useToast();
+
+  useEffect(() => {
+    if (user) {
+      const userRef = doc(firestore, 'users', user.uid);
+      setDocumentNonBlocking(
+        userRef,
+        { id: user.uid, loginId: user.email },
+        { merge: true }
+      );
+      router.push('/home');
+    }
+  }, [user, firestore, router]);
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email || !password) {
+      toast({
+        variant: 'destructive',
+        title: 'Missing fields',
+        description: 'Please fill out all fields.',
+      });
+      return;
+    }
+    initiateEmailSignUp(auth, email, password);
+  };
+
+  if (isUserLoading) {
+    return (
+      <main className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4">
+        <p>Loading...</p>
+      </main>
+    );
+  }
+
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4 bg-gradient-to-br from-background via-purple-900/10 to-background">
       <div className="w-full max-w-md">
         <Card className="border-0 bg-card/80 backdrop-blur-sm shadow-2xl shadow-primary/10">
           <CardHeader className="text-center">
             <div className="mb-4 flex justify-center">
-                <PianoIcon className="h-16 w-16 text-foreground drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
+              <PianoIcon className="h-16 w-16 text-foreground drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
             </div>
             <CardTitle className="text-4xl font-bold tracking-tight text-foreground">
               Create Account
@@ -44,36 +103,69 @@ export default function RegisterPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground/80">Name</Label>
-                <Input id="name" type="text" placeholder="John Doe" required className="placeholder:text-muted-foreground/50 focus:border-accent focus:ring-accent" />
+            <form onSubmit={handleRegister}>
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name" className="text-foreground/80">
+                    Name
+                  </Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="John Doe"
+                    required
+                    className="placeholder:text-muted-foreground/50 focus:border-accent focus:ring-accent"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-foreground/80">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="name@example.com"
+                    required
+                    className="placeholder:text-muted-foreground/50 focus:border-accent focus:ring-accent"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="password" className="text-foreground/80">
+                    Password
+                  </Label>
+                  <Input
+                    id="password"
+                    type="password"
+                    required
+                    className="placeholder:text-muted-foreground/50 focus:border-accent focus:ring-accent"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground/80">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="name@example.com"
-                  required
-                  className="placeholder:text-muted-foreground/50 focus:border-accent focus:ring-accent"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password" className="text-foreground/80">Password</Label>
-                <Input id="password" type="password" required className="placeholder:text-muted-foreground/50 focus:border-accent focus:ring-accent" />
-              </div>
-            </div>
-            <div className="mt-8 flex flex-col gap-4">
-              <Button size="lg" className="w-full font-semibold shadow-lg bg-gradient-to-r from-primary to-accent text-primary-foreground transition-all hover:brightness-110 hover:shadow-accent/40">
-                Register
-              </Button>
-              <Link href="/login" passHref>
-                <Button size="lg" variant="link" className="w-full font-semibold text-secondary hover:text-secondary/90">
-                  Back to Login
+              <div className="mt-8 flex flex-col gap-4">
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full font-semibold shadow-lg bg-gradient-to-r from-primary to-accent text-primary-foreground transition-all hover:brightness-110 hover:shadow-accent/40"
+                >
+                  Register
                 </Button>
-              </Link>
-            </div>
+                <Link href="/login" passHref>
+                  <Button
+                    size="lg"
+                    variant="link"
+                    className="w-full font-semibold text-secondary hover:text-secondary/90"
+                  >
+                    Back to Login
+                  </Button>
+                </Link>
+              </div>
+            </form>
           </CardContent>
         </Card>
       </div>
