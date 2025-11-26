@@ -1,9 +1,8 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemoFirebase, useUser, useFirestore, useCollection } from '@/firebase';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useUser, useFirestore, useCollection } from '@/firebase';
 import { collection } from 'firebase/firestore';
 import {
   Table,
@@ -28,7 +27,7 @@ export default function ProfilePage() {
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
 
-  const rentalsQuery = useMemo(() => {
+  const rentalsQuery = useMemoFirebase(() => {
     if (!user || !firestore) return null;
     return collection(firestore, 'users', user.uid, 'rentals');
   }, [user, firestore]);
