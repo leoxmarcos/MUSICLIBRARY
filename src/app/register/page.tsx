@@ -104,7 +104,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <main className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4 bg-gradient-to-br from-background via-purple-900/10 to-background">
+    <main className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
         <Card className="border-0 bg-card/80 backdrop-blur-sm shadow-2xl shadow-primary/10">
           <CardHeader className="text-center">
@@ -175,7 +175,7 @@ export default function RegisterPage() {
                   <Button
                     size="lg"
                     variant="link"
-                    className="w-full font-semibold text-secondary hover:text-secondary/90"
+                    className="w-full font-semibold text-primary hover:text-primary/90"
                   >
                     Back to Login
                   </Button>

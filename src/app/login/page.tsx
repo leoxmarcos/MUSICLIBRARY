@@ -55,7 +55,7 @@ export default function LoginPage() {
   return (
     <main className="flex min-h-screen w-full flex-col items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
-        <Card className="border-0 shadow-2xl shadow-primary/10">
+        <Card className="border-0 shadow-2xl shadow-primary/20 bg-card/80">
           <CardHeader className="text-center">
             <div className="mb-4 flex justify-center">
               <Music className="h-12 w-12 text-primary" />
@@ -79,6 +79,7 @@ export default function LoginPage() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    className="placeholder:text-muted-foreground/50 focus:border-accent focus:ring-accent"
                   />
                 </div>
                 <div className="space-y-2">
@@ -89,13 +90,14 @@ export default function LoginPage() {
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    className="placeholder:text-muted-foreground/50 focus:border-accent focus:ring-accent"
                   />
                 </div>
               </div>
               <div className="mt-8 flex flex-col gap-4">
                 <Button
                   size="lg"
-                  className="w-full font-semibold shadow-lg shadow-primary/20"
+                  className="w-full font-semibold shadow-lg bg-gradient-to-r from-primary to-accent text-primary-foreground transition-all hover:brightness-110 hover:shadow-accent/40"
                   type="submit"
                 >
                   Log In
@@ -103,8 +105,8 @@ export default function LoginPage() {
                 <Link href="/register" passHref>
                   <Button
                     size="lg"
-                    variant="secondary"
-                    className="w-full font-semibold"
+                    variant="link"
+                    className="w-full font-semibold text-primary hover:text-primary/90"
                   >
                     Registration
                   </Button>
