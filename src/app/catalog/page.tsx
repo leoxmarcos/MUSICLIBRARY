@@ -5,7 +5,6 @@ import Navbar from '@/components/Navbar';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -14,6 +13,8 @@ import {
   PlaceHolderImages,
   defaultImage,
 } from '@/lib/placeholder-images';
+import { Button } from '@/components/ui/button';
+import { ShoppingCart } from 'lucide-react';
 
 type Instrument = {
   name: string;
@@ -22,42 +23,39 @@ type Instrument = {
 };
 
 const instruments: Instrument[] = [
-  {
-    name: 'Acoustic Guitar',
-    price: 499.99,
-    image:
-      PlaceHolderImages.find((img) => img.id === 'guitar') || defaultImage,
-  },
-  {
-    name: 'Grand Piano',
-    price: 5999.99,
-    image: PlaceHolderImages.find((img) => img.id === 'piano') || defaultImage,
-  },
-  {
-    name: 'Drum Kit',
-    price: 899.99,
-    image: PlaceHolderImages.find((img) => img.id === 'drums') || defaultImage,
-  },
-  {
-    name: 'Violin',
-    price: 349.99,
-    image: PlaceHolderImages.find((img) => img.id === 'violin') || defaultImage,
-  },
-  {
-    name: 'Trumpet',
-    price: 299.99,
-    image:
-      PlaceHolderImages.find((img) => img.id === 'trumpet') || defaultImage,
-  },
-  {
-    name: 'Saxophone',
-    price: 699.99,
-    image:
-      PlaceHolderImages.find((img) => img.id === 'saxophone') || defaultImage,
-  },
+  { name: 'Acoustic Guitar', price: 25000, image: PlaceHolderImages.find(img => img.id === 'guitar') || defaultImage },
+  { name: 'Electric Guitar', price: 45000, image: PlaceHolderImages.find(img => img.id === 'electric-guitar') || defaultImage },
+  { name: 'Bass Guitar', price: 35000, image: PlaceHolderImages.find(img => img.id === 'bass-guitar') || defaultImage },
+  { name: 'Grand Piano', price: 450000, image: PlaceHolderImages.find(img => img.id === 'piano') || defaultImage },
+  { name: 'Digital Keyboard', price: 30000, image: PlaceHolderImages.find(img => img.id === 'keyboard') || defaultImage },
+  { name: 'Synthesizer', price: 75000, image: PlaceHolderImages.find(img => img.id === 'synthesizer') || defaultImage },
+  { name: 'Drum Kit', price: 60000, image: PlaceHolderImages.find(img => img.id === 'drums') || defaultImage },
+  { name: 'Bongos', price: 8000, image: PlaceHolderImages.find(img => img.id === 'bongos') || defaultImage },
+  { name: 'Congas', price: 22000, image: PlaceHolderImages.find(img => img.id === 'congas') || defaultImage },
+  { name: 'Violin', price: 18000, image: PlaceHolderImages.find(img => img.id === 'violin') || defaultImage },
+  { name: 'Cello', price: 40000, image: PlaceHolderImages.find(img => img.id === 'cello') || defaultImage },
+  { name: 'Trumpet', price: 15000, image: PlaceHolderImages.find(img => img.id === 'trumpet') || defaultImage },
+  { name: 'Saxophone', price: 55000, image: PlaceHolderImages.find(img => img.id === 'saxophone') || defaultImage },
+  { name: 'Flute', price: 12000, image: PlaceHolderImages.find(img => img.id === 'flute') || defaultImage },
+  { name: 'Clarinet', price: 20000, image: PlaceHolderImages.find(img => img.id === 'clarinet') || defaultImage },
+  { name: 'Harmonica', price: 3000, image: PlaceHolderImages.find(img => img.id === 'harmonica') || defaultImage },
+  { name: 'Accordion', price: 38000, image: PlaceHolderImages.find(img => img.id === 'accordion') || defaultImage },
+  { name: 'Ukulele', price: 5000, image: PlaceHolderImages.find(img => img.id === 'ukulele') || defaultImage },
+  { name: 'Banjo', price: 28000, image: PlaceHolderImages.find(img => img.id === 'banjo') || defaultImage },
+  { name: 'Mandolin', price: 16000, image: PlaceHolderImages.find(img => img.id === 'mandolin') || defaultImage },
+  { name: 'Sitar', price: 32000, image: PlaceHolderImages.find(img => img.id === 'sitar') || defaultImage },
+  { name: 'Tabla', price: 10000, image: PlaceHolderImages.find(img => img.id === 'tabla') || defaultImage },
 ];
 
 export default function CatalogPage() {
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0,
+    }).format(price);
+  };
+
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
       <Navbar />
@@ -93,10 +91,14 @@ export default function CatalogPage() {
                     {instrument.name}
                   </CardTitle>
                 </CardContent>
-                <CardFooter className="p-4 pt-0">
-                  <p className="text-lg font-medium text-primary">
-                    ${instrument.price.toFixed(2)}
+                <CardFooter className="p-4 pt-0 flex justify-between items-center">
+                  <p className="text-lg font-bold text-primary">
+                    {formatPrice(instrument.price)}
                   </p>
+                   <Button size="sm" className="glowing-btn">
+                    <ShoppingCart className="mr-2 h-4 w-4" />
+                    Add to Cart
+                  </Button>
                 </CardFooter>
               </Card>
             ))}

@@ -77,6 +77,102 @@
       "description": "A group of friends playing music together in a relaxed setting.",
       "imageUrl": "https://images.unsplash.com/photo-1631739714671-0de24b57d810?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxtdXNpY2lhbnMlMjBwbGF5aW5nfGVufDB8fHx8MTc2NDE5MTMyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "musicians playing"
+    },
+    {
+      "id": "electric-guitar",
+      "description": "A sleek electric guitar.",
+      "imageUrl": "https://images.unsplash.com/photo-1521302202723-ce13a35a638a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlbGVjdHJpYyUyMGd1aXRhcnxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "electric guitar"
+    },
+    {
+      "id": "bass-guitar",
+      "description": "A four-string bass guitar.",
+      "imageUrl": "https://images.unsplash.com/photo-1605014318353-c59800e7368c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiYXNzJTIwZ3VpdGFyfGVufDB8fHx8MTc2NDIwMzQ1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bass guitar"
+    },
+    {
+      "id": "keyboard",
+      "description": "A digital piano keyboard.",
+      "imageUrl": "https://images.unsplash.com/photo-1593697821191-3e714570b6f9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwa2V5Ym9hcmR8ZW58MHx8fHwxNzY0MjAzNDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "digital keyboard"
+    },
+    {
+      "id": "synthesizer",
+      "description": "A vintage synthesizer with many knobs.",
+      "imageUrl": "https://images.unsplash.com/photo-1574042898933-a0a4a9538827?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzeW50aGVzaXplcnxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "synthesizer"
+    },
+    {
+      "id": "bongos",
+      "description": "A pair of bongo drums.",
+      "imageUrl": "https://images.unsplash.com/photo-1595064510344-5998a051d931?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxib25nb3N8ZW58MHx8fHwxNzY0MjAzNDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bongos"
+    },
+    {
+      "id": "congas",
+      "description": "A set of conga drums.",
+      "imageUrl": "https://images.unsplash.com/photo-1629806448374-a736a61110a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb25nYXN8ZW58MHx8fHwxNzY0MjAzNDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "congas"
+    },
+    {
+      "id": "cello",
+      "description": "An elegant cello leaning against a wall.",
+      "imageUrl": "https://images.unsplash.com/photo-1587175416683-99a3048b6c86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjZWxsb3xlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cello"
+    },
+    {
+      "id": "flute",
+      "description": "A silver concert flute.",
+      "imageUrl": "https://images.unsplash.com/photo-1626895982845-393274e0223a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmbHV0ZXxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "flute"
+    },
+    {
+      "id": "clarinet",
+      "description": "A wooden clarinet.",
+      "imageUrl": "https://images.unsplash.com/photo-1519894413245-0385934e623b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjbGFyaW5ldHxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "clarinet"
+    },
+    {
+      "id": "harmonica",
+      "description": "A blues harmonica.",
+      "imageUrl": "https://images.unsplash.com/photo-1628795589139-442a401ab6b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoYXJtb25pY2F8ZW58MHx8fHwxNzY0MjAzNDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "harmonica"
+    },
+    {
+      "id": "accordion",
+      "description": "A red piano accordion.",
+      "imageUrl": "https://images.unsplash.com/photo-1597144516164-9a4f43452c93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhY2NvcmRpb258ZW58MHx8fHwxNzY0MjAzNDUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "accordion"
+    },
+    {
+      "id": "ukulele",
+      "description": "A small four-stringed ukulele.",
+      "imageUrl": "https://images.unsplash.com/photo-1550291652-6ea9114a47b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx1a3VsZWxlfGVufDB8fHx8MTc2NDIwMzQ1MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ukulele"
+    },
+    {
+      "id": "banjo",
+      "description": "A five-string banjo.",
+      "imageUrl": "https://images.unsplash.com/photo-1629938822642-129997c6d660?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiYW5qb3xlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "banjo"
+    },
+    {
+      "id": "mandolin",
+      "description": "An eight-string mandolin.",
+      "imageUrl": "https://images.unsplash.com/photo-1628203383459-7057a7d432a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYW5kb2xpbnxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mandolin"
+    },
+    {
+      "id": "sitar",
+      "description": "An ornate Indian sitar.",
+      "imageUrl": "https://images.unsplash.com/photo-1601633454326-17d7b27e7f7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzaXRhcnxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sitar"
+    },
+    {
+      "id": "tabla",
+      "description": "A pair of Indian tabla drums.",
+      "imageUrl": "https://images.unsplash.com/photo-1597811986164-1e5491e0a24e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0YWJsYXxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tabla"
     }
   ]
 }
