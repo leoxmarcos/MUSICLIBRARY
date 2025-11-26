@@ -1,9 +1,10 @@
 'use client';
 
-import { useMemoFirebase, useUser, useFirestore, useCollection } from '@/firebase';
+import { useMemo, useState } from 'react';
+import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { collection } from 'firebase/firestore';
+import { collection, deleteDoc, doc } from 'firebase/firestore';
 import {
   Table,
   TableBody,
@@ -15,7 +16,9 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Button } from '@/components/ui/button';
 import { format } from 'date-fns';
+import { cn } from '@/lib/utils';
 
 type Rental = {
   instrumentName: string;
@@ -26,6 +29,7 @@ type Rental = {
 export default function ProfilePage() {
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
+  const [submitted, setSubmitted] = useState<string[]>([]);
 
   const rentalsQuery = useMemoFirebase(() => {
     if (!user || !firestore) return null;
@@ -47,6 +51,15 @@ export default function ProfilePage() {
     if (!timestamp) return 'N/A';
     const date = new Date(timestamp.seconds * 1000);
     return format(date, 'PPP');
+  };
+
+  const handleReturn = async (rentalId: string) => {
+    if (!user || !firestore) return;
+    setSubmitted((prev) => [...prev, rentalId]);
+    setTimeout(async () => {
+      const rentalDocRef = doc(firestore, 'users', user.uid, 'rentals', rentalId);
+      await deleteDoc(rentalDocRef);
+    }, 500); // Delay removal to show submitted state
   };
 
   const isLoading = isUserLoading || areRentalsLoading;
@@ -116,16 +129,39 @@ export default function ProfilePage() {
                         <TableHead>Instrument</TableHead>
                         <TableHead>Issue Date</TableHead>
                         <TableHead>Return Date</TableHead>
+                        <TableHead className="text-right">Action</TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
                       {rentals.map((rental) => (
-                        <TableRow key={rental.id}>
+                        <TableRow
+                          key={rental.id}
+                          className={cn(
+                            'transition-opacity duration-500',
+                            submitted.includes(rental.id) ? 'opacity-0' : 'opacity-100'
+                          )}
+                        >
                           <TableCell className="font-medium">
                             {rental.instrumentName}
                           </TableCell>
                           <TableCell>{formatDate(rental.issueDate)}</TableCell>
                           <TableCell>{formatDate(rental.returnDate)}</TableCell>
+                          <TableCell className="text-right">
+                             <Button
+                                size="sm"
+                                variant={submitted.includes(rental.id) ? 'outline' : 'default'}
+                                className={cn(
+                                'transition-all duration-300 w-28',
+                                submitted.includes(rental.id)
+                                    ? 'bg-white text-green-600 border-green-600'
+                                    : 'bg-green-600 hover:bg-green-700 text-white'
+                                )}
+                                onClick={() => handleReturn(rental.id)}
+                                disabled={submitted.includes(rental.id)}
+                            >
+                                {submitted.includes(rental.id) ? 'Submitted' : 'Submit'}
+                            </Button>
+                          </TableCell>
                         </TableRow>
                       ))}
                     </TableBody>
