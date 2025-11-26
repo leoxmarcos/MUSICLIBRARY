@@ -55,7 +55,7 @@ export default function RegisterPage() {
   const { toast } = useToast();
 
   useEffect(() => {
-    if (user) {
+    if (user && firestore) {
       const userRef = doc(firestore, 'users', user.uid);
       setDocumentNonBlocking(
         userRef,
