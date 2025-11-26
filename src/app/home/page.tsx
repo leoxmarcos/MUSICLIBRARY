@@ -53,25 +53,6 @@ const newsItems = [
   },
 ];
 
-const recommendedInstruments = [
-  {
-    name: 'Acoustic Guitar',
-    image: PlaceHolderImages.find((img) => img.id === 'guitar') || defaultImage,
-  },
-  {
-    name: 'Grand Piano',
-    image: PlaceHolderImages.find((img) => img.id === 'piano') || defaultImage,
-  },
-  {
-    name: 'Drum Kit',
-    image: PlaceHolderImages.find((img) => img.id === 'drums') || defaultImage,
-  },
-  {
-    name: 'Violin',
-    image: PlaceHolderImages.find((img) => img.id === 'violin') || defaultImage,
-  },
-];
-
 const welcomeMessages = [
   'Discover, organize, and immerse yourself in the world of music.',
   'Where every note finds its home.',
@@ -102,6 +83,10 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, []);
 
+  const featuredBannerImage =
+    PlaceHolderImages.find((img) => img.id === 'featured-banner') ||
+    defaultImage;
+
   if (isUserLoading || !user) {
     return (
       <div className="flex min-h-screen w-full flex-col items-center justify-center bg-background">
@@ -110,38 +95,39 @@ export default function HomePage() {
     );
   }
 
-  const featuredBannerImage =
-    PlaceHolderImages.find((img) => img.id === 'featured-banner') ||
-    defaultImage;
-  
   return (
-    <div className="flex min-h-screen w-full flex-col bg-background">
+    <div className="relative flex min-h-screen w-full flex-col">
       <Navbar />
-      <main className="flex flex-1 flex-col items-center pt-16 text-center">
+      
+      {/* Background Image */}
+      <Image
+        src={featuredBannerImage.imageUrl}
+        alt={featuredBannerImage.description}
+        fill
+        className="object-cover -z-10"
+        data-ai-hint="musical instruments"
+      />
+      <div className="absolute inset-0 bg-black/60 -z-10" />
+
+      {/* Main content with its own background for readability */}
+      <main className="flex flex-1 flex-col items-center pt-16 text-center text-primary-foreground">
+
         {/* Welcome Section */}
         <section className="w-full py-12 md:py-24 lg:py-32">
           <div className="container mx-auto px-4 md:px-6">
             <MusicBookLogo className="h-24 w-auto mb-4 mx-auto" />
-            <h1 className="text-5xl font-bold tracking-tight text-foreground">
+            <h1 className="text-5xl font-bold tracking-tight">
               Welcome to your Music Library
             </h1>
-            <p className="mt-4 max-w-2xl text-lg text-muted-foreground mx-auto">
+            <p className="mt-4 max-w-2xl text-lg text-primary-foreground/90 mx-auto">
               {welcomeMessages[currentMessageIndex]}
             </p>
           </div>
         </section>
 
-        {/* Featured Banner */}
-        <section className="w-full">
-          <div className="relative h-[400px] w-full">
-            <Image
-              src={featuredBannerImage.imageUrl}
-              alt={featuredBannerImage.description}
-              fill
-              className="object-cover"
-              data-ai-hint="musical instruments"
-            />
-            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
+        {/* "New Instrument Arrivals" Banner Content */}
+        <section className="w-full mb-16">
+            <div className="flex flex-col items-center justify-center text-center p-4">
               <h2 className="text-4xl font-extrabold text-primary-foreground">
                 New Instrument Arrivals
               </h2>
@@ -151,16 +137,16 @@ export default function HomePage() {
               </p>
               <Link href="/catalog" passHref>
                 <Button className="mt-6 glowing-btn" size="lg">
-                  View
+                  View Catalog
                 </Button>
               </Link>
             </div>
-          </div>
         </section>
 
+
         {/* Latest Updates Carousel */}
-        <section className="w-full max-w-6xl mt-16 px-4 md:px-6 text-left">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
+        <section className="w-full max-w-6xl mt-16 px-4 md:px-6 text-left bg-background/80 backdrop-blur-sm rounded-t-lg py-8">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6 text-center">
             Latest Updates
           </h2>
           <Carousel
@@ -207,7 +193,7 @@ export default function HomePage() {
         </section>
 
       </main>
-      <footer className="w-full bg-card mt-16 py-6">
+      <footer className="w-full bg-card py-6">
         <div className="container mx-auto flex flex-col items-center justify-center gap-4 px-4 md:px-6">
           <p className="text-sm text-muted-foreground">
             Follow us on social media
