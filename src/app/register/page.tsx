@@ -21,28 +21,8 @@ import {
 } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
 import { doc } from 'firebase/firestore';
-
-const PianoIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    {...props}
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M18.5 8c-1.5 0-2.8-1.4-3-3 .1-1.6 1.5-3 3-3 1.7 0 3 1.3 3 3 .1 1.6-1.2 3-3 3Z" />
-    <path d="M12 11.5v-2" />
-    <path d="M12 22V10" />
-    <path d="M5 22V10" />
-    <path d="M19 13.3V22" />
-    <path d="M2 10h20" />
-  </svg>
-);
+import Image from 'next/image';
+import { PlaceHolderImages, defaultImage } from '@/lib/placeholder-images';
 
 export default function RegisterPage() {
   const [name, setName] = useState('');
@@ -53,6 +33,8 @@ export default function RegisterPage() {
   const { user, isUserLoading } = useUser();
   const router = useRouter();
   const { toast } = useToast();
+  const pianoImage =
+    PlaceHolderImages.find((img) => img.id === 'piano') || defaultImage;
 
   useEffect(() => {
     if (user && firestore) {
@@ -109,7 +91,15 @@ export default function RegisterPage() {
         <Card>
           <CardHeader className="text-center">
             <div className="mb-4 flex justify-center">
-              <PianoIcon className="h-16 w-16 text-foreground" />
+              <div className="relative h-24 w-24">
+                <Image
+                  src={pianoImage.imageUrl}
+                  alt={pianoImage.description}
+                  fill
+                  className="rounded-full object-cover"
+                  data-ai-hint={pianoImage.imageHint}
+                />
+              </div>
             </div>
             <CardTitle className="text-4xl font-bold tracking-tight">
               Create Account
