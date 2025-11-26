@@ -8,8 +8,8 @@
     },
     {
       "id": "piano",
-      "description": "A grand piano in a concert hall.",
-      "imageUrl": "https://images.unsplash.com/photo-1518544897598-d3c0040f1089?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z3JhbmQlMjBwaWFub3xlbnwwfHx8fDE3NjQxODU4NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "A high-resolution image of a grand piano in a concert hall.",
+      "imageUrl": "https://images.unsplash.com/photo-1601375329973-255010959a78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxncmFuZCUyMHBpYW5vJTJDY29uY2VydCUyMGhhbGx8ZW58MHx8fHwxNzE2NDAxNzYyfDA&ixlib=rb-4.0.3&q=80&w=1080",
       "imageHint": "grand piano"
     },
     {

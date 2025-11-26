@@ -74,20 +74,21 @@ export default function CatalogPage() {
             {instruments.map((instrument) => (
               <Card
                 key={instrument.name}
-                className="overflow-hidden bg-card text-card-foreground transition-shadow hover:shadow-lg hover:shadow-primary/20"
+                className="overflow-hidden bg-card text-card-foreground transition-shadow hover:shadow-lg hover:shadow-primary/20 flex flex-col"
               >
                 <CardHeader className="p-0">
-                  <div className="relative h-48 w-full">
+                  <div className="relative aspect-[4/3] w-full">
                     <Image
                       src={instrument.image.imageUrl}
                       alt={instrument.image.description}
                       fill
                       className="object-cover"
                       data-ai-hint={instrument.image.imageHint}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
                 </CardHeader>
-                <CardContent className="p-4">
+                <CardContent className="p-4 flex-grow">
                   <CardTitle className="text-xl font-semibold">
                     {instrument.name}
                   </CardTitle>
