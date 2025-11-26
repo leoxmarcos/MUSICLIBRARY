@@ -14,15 +14,17 @@ import {
 } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart } from 'lucide-react';
+import { useCart } from '@/context/CartContext';
 
-type Instrument = {
+export type Instrument = {
+  id: string;
   name: string;
   rentAmount: number;
   buyAmount: number;
   image: (typeof PlaceHolderImages)[0];
 };
 
-const instruments: Instrument[] = [
+const instruments: Omit<Instrument, 'id'>[] = [
   { name: 'Acoustic Guitar', rentAmount: 1500, buyAmount: 25000, image: PlaceHolderImages.find(img => img.id === 'guitar') || defaultImage },
   { name: 'Electric Guitar', rentAmount: 2500, buyAmount: 45000, image: PlaceHolderImages.find(img => img.id === 'electric-guitar') || defaultImage },
   { name: 'Bass Guitar', rentAmount: 2000, buyAmount: 35000, image: PlaceHolderImages.find(img => img.id === 'bass-guitar') || defaultImage },
@@ -47,7 +49,15 @@ const instruments: Instrument[] = [
   { name: 'Tabla', rentAmount: 600, buyAmount: 10000, image: PlaceHolderImages.find(img => img.id === 'tabla') || defaultImage },
 ];
 
+const instrumentData: Instrument[] = instruments.map((inst, index) => ({
+    ...inst,
+    id: `inst_${index}`
+}));
+
+
 export default function CatalogPage() {
+  const { addToCart } = useCart();
+
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
@@ -69,9 +79,9 @@ export default function CatalogPage() {
           </p>
 
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {instruments.map((instrument) => (
+            {instrumentData.map((instrument) => (
               <Card
-                key={instrument.name}
+                key={instrument.id}
                 className="overflow-hidden bg-card text-card-foreground transition-shadow hover:shadow-lg hover:shadow-primary/20 flex flex-col"
               >
                 <CardHeader className="p-0">
@@ -106,7 +116,7 @@ export default function CatalogPage() {
                     </div>
                 </CardContent>
                 <CardFooter className="p-4 pt-0">
-                   <Button size="sm" className="w-full glowing-btn">
+                   <Button size="sm" className="w-full glowing-btn" onClick={() => addToCart(instrument)}>
                     <ShoppingCart className="mr-2 h-4 w-4" />
                     Add to Cart
                   </Button>
