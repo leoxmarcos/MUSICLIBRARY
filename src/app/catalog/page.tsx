@@ -10,7 +10,10 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import {
+  PlaceHolderImages,
+  defaultImage,
+} from '@/lib/placeholder-images';
 
 type Instrument = {
   name: string;
@@ -22,32 +25,35 @@ const instruments: Instrument[] = [
   {
     name: 'Acoustic Guitar',
     price: 499.99,
-    image: PlaceHolderImages.find((img) => img.id === 'guitar')!,
+    image:
+      PlaceHolderImages.find((img) => img.id === 'guitar') || defaultImage,
   },
   {
     name: 'Grand Piano',
     price: 5999.99,
-    image: PlaceHolderImages.find((img) => img.id === 'piano')!,
+    image: PlaceHolderImages.find((img) => img.id === 'piano') || defaultImage,
   },
   {
     name: 'Drum Kit',
     price: 899.99,
-    image: PlaceHolderImages.find((img) => img.id === 'drums')!,
+    image: PlaceHolderImages.find((img) => img.id === 'drums') || defaultImage,
   },
   {
     name: 'Violin',
     price: 349.99,
-    image: PlaceHolderImages.find((img) => img.id === 'violin')!,
+    image: PlaceHolderImages.find((img) => img.id === 'violin') || defaultImage,
   },
   {
     name: 'Trumpet',
     price: 299.99,
-    image: PlaceHolderImages.find((img) => img.id === 'trumpet')!,
+    image:
+      PlaceHolderImages.find((img) => img.id === 'trumpet') || defaultImage,
   },
   {
     name: 'Saxophone',
     price: 699.99,
-    image: PlaceHolderImages.find((img) => img.id === 'saxophone')!,
+    image:
+      PlaceHolderImages.find((img) => img.id === 'saxophone') || defaultImage,
   },
 ];
 

@@ -14,7 +14,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { PlaceHolderImages, defaultImage } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import { Facebook, Twitter, Instagram } from 'lucide-react';
 
@@ -23,44 +23,52 @@ const newsItems = [
     title: 'New Album: "Echoes of the Void"',
     description:
       'The latest album from indie sensation "Starlight Bloom" is now available. A journey through synth-pop soundscapes.',
-    image: PlaceHolderImages.find((img) => img.id === 'album-cover-1')!,
+    image:
+      PlaceHolderImages.find((img) => img.id === 'album-cover-1') ||
+      defaultImage,
   },
   {
     title: 'Artist Spotlight: An Interview with DJ Hex',
     description:
       'We sit down with the enigmatic DJ Hex to discuss their creative process and the future of electronic music.',
-    image: PlaceHolderImages.find((img) => img.id === 'artist-interview')!,
+    image:
+      PlaceHolderImages.find((img) => img.id === 'artist-interview') ||
+      defaultImage,
   },
   {
     title: 'MuseFest 2024 Lineup Announced!',
     description:
       'The biggest music festival of the year is back! Check out the star-studded lineup featuring over 100 artists.',
-    image: PlaceHolderImages.find((img) => img.id === 'music-festival')!,
+    image:
+      PlaceHolderImages.find((img) => img.id === 'music-festival') ||
+      defaultImage,
   },
   {
     title: 'Vintage Vinyl Collection Restocked',
     description:
       'Rare and classic vinyl records are back in stock. Grab your favorites before they are gone again!',
-    image: PlaceHolderImages.find((img) => img.id === 'vinyl-collection')!,
+    image:
+      PlaceHolderImages.find((img) => img.id === 'vinyl-collection') ||
+      defaultImage,
   },
 ];
 
 const recommendedInstruments = [
   {
     name: 'Acoustic Guitar',
-    image: PlaceHolderImages.find((img) => img.id === 'guitar')!,
+    image: PlaceHolderImages.find((img) => img.id === 'guitar') || defaultImage,
   },
   {
     name: 'Grand Piano',
-    image: PlaceHolderImages.find((img) => img.id === 'piano')!,
+    image: PlaceHolderImages.find((img) => img.id === 'piano') || defaultImage,
   },
   {
     name: 'Drum Kit',
-    image: PlaceHolderImages.find((img) => img.id === 'drums')!,
+    image: PlaceHolderImages.find((img) => img.id === 'drums') || defaultImage,
   },
   {
     name: 'Violin',
-    image: PlaceHolderImages.find((img) => img.id === 'violin')!,
+    image: PlaceHolderImages.find((img) => img.id === 'violin') || defaultImage,
   },
 ];
 
@@ -81,6 +89,10 @@ export default function HomePage() {
       </div>
     );
   }
+
+  const featuredBannerImage =
+    PlaceHolderImages.find((img) => img.id === 'featured-banner') ||
+    defaultImage;
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
@@ -104,11 +116,8 @@ export default function HomePage() {
         <section className="w-full">
           <div className="relative h-[400px] w-full">
             <Image
-              src={
-                PlaceHolderImages.find((img) => img.id === 'featured-banner')!
-                  .imageUrl
-              }
-              alt="New instrument arrivals"
+              src={featuredBannerImage.imageUrl}
+              alt={featuredBannerImage.description}
               fill
               className="object-cover"
               data-ai-hint="musical instruments"
