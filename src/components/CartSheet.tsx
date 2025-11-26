@@ -12,16 +12,24 @@ import { Button } from './ui/button';
 import { useCart } from '@/context/CartContext';
 import Image from 'next/image';
 import { ScrollArea } from './ui/scroll-area';
-import { Trash2 } from 'lucide-react';
+import { Minus, Plus, Trash2 } from 'lucide-react';
 import { Separator } from './ui/separator';
 import { useUser, useFirestore, addDocumentNonBlocking } from '@/firebase';
 import { collection } from 'firebase/firestore';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 export const CartSheet = ({ children }: { children: React.ReactNode }) => {
-  const { cartItems, cartCount, totalPrice, removeFromCart, clearCart } =
-    useCart();
+  const {
+    cartItems,
+    cartCount,
+    totalPrice,
+    removeFromCart,
+    clearCart,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useCart();
   const { user } = useUser();
   const firestore = useFirestore();
   const { toast } = useToast();
@@ -61,15 +69,16 @@ export const CartSheet = ({ children }: { children: React.ReactNode }) => {
 
     // Using Promise.all to wait for all writes to be initiated
     await Promise.all(
-      cartItems.map((item) => {
+      cartItems.flatMap((item) => {
         const rentalData = {
           instrumentName: item.name,
           issueDate: issueDate,
           returnDate: returnDate,
         };
-        // We are not awaiting each call here, just initiating them.
-        // addDocumentNonBlocking will handle the Firestore write.
-        return addDocumentNonBlocking(rentalsRef, rentalData);
+        // Create an array of promises for each quantity of the item
+        return Array.from({ length: item.quantity }, () =>
+          addDocumentNonBlocking(rentalsRef, rentalData)
+        );
       })
     );
 
@@ -97,8 +106,8 @@ export const CartSheet = ({ children }: { children: React.ReactNode }) => {
             <ScrollArea className="flex-1 -mr-6 pr-4">
               <div className="flex flex-col gap-4 py-4">
                 {cartItems.map((item) => (
-                  <div key={item.id} className="flex items-center gap-4">
-                    <div className="relative h-20 w-20 overflow-hidden rounded-md">
+                  <div key={item.id} className="flex items-start gap-4">
+                    <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md">
                       <Image
                         src={item.image.imageUrl}
                         alt={item.image.description}
@@ -106,20 +115,43 @@ export const CartSheet = ({ children }: { children: React.ReactNode }) => {
                         className="object-cover"
                       />
                     </div>
-                    <div className="flex-1">
-                      <p className="font-semibold">{item.name}</p>
-                      <p className="text-sm text-muted-foreground">
+                    <div className="flex-1 space-y-2">
+                      <div className='flex justify-between items-start'>
+                        <p className="font-semibold leading-tight">{item.name}</p>
+                         <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-7 w-7 text-muted-foreground hover:text-destructive"
+                          onClick={() => removeFromCart(item.id)}
+                        >
+                          <Trash2 className="h-4 w-4" />
+                          <span className="sr-only">Remove item</span>
+                        </Button>
+                      </div>
+                       <p className="text-sm font-bold text-primary">
                         {formatPrice(item.buyAmount)}
                       </p>
+                      <div className="flex items-center gap-2">
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className="h-7 w-7"
+                          onClick={() => decreaseQuantity(item.id)}
+                        >
+                          <Minus className="h-4 w-4" />
+                        </Button>
+                        <span className="w-6 text-center font-medium">{item.quantity}</span>
+                        <Button
+                          variant="outline"
+                          size="icon"
+                          className={cn("h-7 w-7", item.quantity >= item.instrumentQuantity && 'cursor-not-allowed opacity-50')}
+                          onClick={() => increaseQuantity(item.id)}
+                          disabled={item.quantity >= item.instrumentQuantity}
+                        >
+                          <Plus className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </div>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => removeFromCart(item.id)}
-                    >
-                      <Trash2 className="h-4 w-4 text-destructive" />
-                      <span className="sr-only">Remove item</span>
-                    </Button>
                   </div>
                 ))}
               </div>
