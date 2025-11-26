@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { User as UserIcon, ShoppingCart } from 'lucide-react';
+import { User as UserIcon } from 'lucide-react';
 import { useAuth, useUser } from '@/firebase';
 import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
@@ -16,14 +16,11 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { MusicBookLogo } from './GuitarLogo';
-import { useCart } from '@/context/CartContext';
-import { CartSheet } from './CartSheet';
 
 const Navbar = () => {
   const auth = useAuth();
   const { user } = useUser();
   const router = useRouter();
-  const { cartCount } = useCart();
 
   const handleLogout = async () => {
     if (auth) {
@@ -82,18 +79,6 @@ const Navbar = () => {
             </Link>
           </nav>
           
-          <CartSheet>
-            <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-              <ShoppingCart className="h-5 w-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
-                  {cartCount}
-                </span>
-              )}
-               <span className="sr-only">Open Cart</span>
-            </Button>
-          </CartSheet>
-
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>

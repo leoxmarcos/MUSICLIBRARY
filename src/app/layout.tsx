@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { FirebaseClientProvider } from '@/firebase/client-provider';
 import { CartProvider } from '@/context/CartContext';
+import { FloatingCartButton } from '@/components/FloatingCartButton';
 
 export const metadata: Metadata = {
   title: 'Music Library',
@@ -25,6 +26,7 @@ export default function RootLayout({
         <FirebaseClientProvider>
           <CartProvider>
             {children}
+            <FloatingCartButton />
           </CartProvider>
         </FirebaseClientProvider>
         <Toaster />
