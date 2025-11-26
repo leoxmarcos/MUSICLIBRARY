@@ -123,7 +123,7 @@ export default function HomePage() {
               </p>
               <Link href="/catalog" passHref>
                 <Button className="mt-6 glowing-btn" size="lg">
-                  Shop Now
+                  View
                 </Button>
               </Link>
             </div>
