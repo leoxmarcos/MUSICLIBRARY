@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
@@ -72,15 +72,35 @@ const recommendedInstruments = [
   },
 ];
 
+const welcomeMessages = [
+  'Discover, organize, and immerse yourself in the world of music.',
+  'Where every note finds its home.',
+  'Your personal sanctuary for sound.',
+  'Craft your next masterpiece. All your instruments, in one place.',
+  'The ultimate playground for musicians.',
+];
+
+
 export default function HomePage() {
   const { user, isUserLoading } = useUser();
   const router = useRouter();
+  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
   useEffect(() => {
     if (!isUserLoading && !user) {
       router.push('/login');
     }
   }, [user, isUserLoading, router]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMessageIndex((prevIndex) =>
+        (prevIndex + 1) % welcomeMessages.length
+      );
+    }, 5000); // Change message every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   if (isUserLoading || !user) {
     return (
@@ -110,8 +130,8 @@ export default function HomePage() {
               Welcome to your Music Library
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-muted-foreground mx-auto">
-              Discover, organize, and immerse yourself in the world of music.
-              You are logged in as {user.email}.
+              {welcomeMessages[currentMessageIndex]} You are logged in as{' '}
+              {user.email}.
             </p>
           </div>
         </section>
