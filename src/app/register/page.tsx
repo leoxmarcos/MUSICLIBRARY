@@ -76,7 +76,23 @@ export default function RegisterPage() {
       });
       return;
     }
-    initiateEmailSignUp(auth, email, password);
+    try {
+      await initiateEmailSignUp(auth, email, password);
+    } catch (error: any) {
+      if (error.code === 'auth/email-already-in-use') {
+        toast({
+          variant: 'destructive',
+          title: 'Registration Failed',
+          description: 'This email is already in use. Please try another.',
+        });
+      } else {
+        toast({
+          variant: 'destructive',
+          title: 'Registration Error',
+          description: error.message || 'An unexpected error occurred.',
+        });
+      }
+    }
   };
 
   if (isUserLoading) {
