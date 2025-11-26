@@ -117,7 +117,7 @@
     {
       "id": "cello",
       "description": "An elegant cello leaning against a wall.",
-      "imageUrl": "https://images.unsplash.com/photo-1587175416683-99a3048b6c86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjZWxsb3xlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1587175416683-99a3048b6c86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjZWxsb3xlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "cello"
     },
     {
@@ -153,26 +153,32 @@
     {
       "id": "banjo",
       "description": "A five-string banjo.",
-      "imageUrl": "https://images.unsplash.com/photo-1629938822642-129997c6d660?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiYW5qb3xlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1629938822642-129997c6d660?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxiYW5qb3xlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "banjo"
     },
     {
       "id": "mandolin",
       "description": "An eight-string mandolin.",
-      "imageUrl": "https://images.unsplash.com/photo-1628203383459-7057a7d432a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYW5kb2xpbnxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1628203383459-7057a7d432a5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYW5kb2xpbnxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "mandolin"
     },
     {
       "id": "sitar",
       "description": "An ornate Indian sitar.",
-      "imageUrl": "https://images.unsplash.com/photo-1601633454326-17d7b27e7f7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzaXRhcnxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1601633454326-17d7b27e7f7f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzaXRhcnxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "sitar"
     },
     {
       "id": "tabla",
       "description": "A pair of Indian tabla drums.",
-      "imageUrl": "https://images.unsplash.com/photo-1597811986164-1e5491e0a24e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0YWJsYXxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1597811986164-1e5491e0a24e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0YWJsYXxlbnwwfHx8fDE3NjQyMDM0NTF8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "tabla"
+    },
+    {
+      "id": "register-page",
+      "description": "Close up of piano keys.",
+      "imageUrl": "https://images.unsplash.com/photo-1520442058444-6c36952613e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80",
+      "imageHint": "piano keys"
     }
   ]
 }

@@ -33,8 +33,8 @@ export default function RegisterPage() {
   const { user, isUserLoading } = useUser();
   const router = useRouter();
   const { toast } = useToast();
-  const pianoImage =
-    PlaceHolderImages.find((img) => img.id === 'piano') || defaultImage;
+  const registerImage =
+    PlaceHolderImages.find((img) => img.id === 'register-page') || defaultImage;
 
   useEffect(() => {
     if (user && firestore) {
@@ -93,11 +93,11 @@ export default function RegisterPage() {
             <div className="mb-4 flex justify-center">
               <div className="relative h-24 w-24">
                 <Image
-                  src={pianoImage.imageUrl}
-                  alt={pianoImage.description}
+                  src={registerImage.imageUrl}
+                  alt={registerImage.description}
                   fill
                   className="rounded-full object-cover"
-                  data-ai-hint={pianoImage.imageHint}
+                  data-ai-hint={registerImage.imageHint}
                 />
               </div>
             </div>
