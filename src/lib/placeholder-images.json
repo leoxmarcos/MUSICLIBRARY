@@ -65,6 +65,18 @@
       "description": "A collection of various musical instruments on display.",
       "imageUrl": "https://images.unsplash.com/photo-1462965326201-d02e4f455804?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtdXNpY2FsJTIwaW5zdHJ1bWVudHN8ZW58MHx8fHwxNzE2MzA3NzY4fDA&ixlib=rb-4.0.3&q=80&w=1920",
       "imageHint": "musical instruments"
+    },
+    {
+      "id": "about-us-1",
+      "description": "Interior of a cozy music shop with various instruments.",
+      "imageUrl": "https://images.unsplash.com/photo-1515266591878-72d7e1030950?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80",
+      "imageHint": "music shop"
+    },
+    {
+      "id": "about-us-2",
+      "description": "A group of friends playing music together in a relaxed setting.",
+      "imageUrl": "https://images.unsplash.com/photo-1520442058444-6c36952613e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80",
+      "imageHint": "musicians playing"
     }
   ]
 }
