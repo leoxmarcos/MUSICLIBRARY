@@ -32,37 +32,46 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const { toast } = useToast();
 
   const addToCart = (item: Instrument) => {
+    let itemExists = false;
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((i) => i.id === item.id);
       if (existingItem) {
-        // For simplicity, we just notify it's already there. 
-        // A real implementation might increase quantity.
-        toast({
-          title: 'Already in cart',
-          description: `${item.name} is already in your cart.`,
-        });
+        itemExists = true;
         return prevItems;
       }
+      return [...prevItems, { ...item, quantity: 1 }];
+    });
+
+    if (itemExists) {
+      toast({
+        title: 'Already in cart',
+        description: `${item.name} is already in your cart.`,
+      });
+    } else {
       toast({
         title: 'Added to cart',
         description: `${item.name} has been added to your cart.`,
       });
-      return [...prevItems, { ...item, quantity: 1 }];
-    });
+    }
   };
 
   const removeFromCart = (itemId: string) => {
+    let removedItemName: string | undefined;
     setCartItems((prevItems) => {
       const itemToRemove = prevItems.find((i) => i.id === itemId);
       if(itemToRemove) {
-        toast({
-            variant: 'destructive',
-            title: 'Removed from cart',
-            description: `${itemToRemove.name} has been removed.`,
-        });
+        removedItemName = itemToRemove.name;
       }
       return prevItems.filter((item) => item.id !== itemId);
     });
+
+    if(removedItemName) {
+      toast({
+          variant: 'destructive',
+          title: 'Removed from cart',
+          description: `${removedItemName} has been removed.`,
+      });
+    }
   };
 
   const clearCart = () => {
