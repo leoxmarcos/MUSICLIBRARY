@@ -23,6 +23,8 @@ export default function ContactPage() {
 
   const mapImage =
     PlaceHolderImages.find((img) => img.id === 'contact-map') || defaultImage;
+  const contactBgImage =
+    PlaceHolderImages.find((img) => img.id === 'contact-background') || defaultImage;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,7 +52,16 @@ export default function ContactPage() {
   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   return (
-    <div className="flex min-h-screen w-full flex-col bg-background">
+    <div className="relative flex min-h-screen w-full flex-col">
+      <Image
+        src={contactBgImage.imageUrl}
+        alt={contactBgImage.description}
+        fill
+        className="object-cover -z-10"
+        data-ai-hint={contactBgImage.imageHint}
+      />
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm -z-10" />
+
       <Navbar />
       <main className="flex-1 p-8 pt-24">
         <div className="container mx-auto">
@@ -66,7 +77,7 @@ export default function ContactPage() {
           <div className="grid max-w-6xl mx-auto gap-12 md:grid-cols-2">
             {/* Left Column: Contact Info & Map */}
             <div className="space-y-8">
-              <Card>
+              <Card className="bg-card/80">
                 <CardHeader>
                   <CardTitle>Our Location</CardTitle>
                 </CardHeader>
@@ -109,7 +120,7 @@ export default function ContactPage() {
 
             {/* Right Column: Contact Form */}
             <div>
-              <Card>
+              <Card className="bg-card/80">
                 <CardHeader>
                   <CardTitle>Send a Message</CardTitle>
                 </CardHeader>

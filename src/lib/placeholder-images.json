@@ -185,6 +185,12 @@
       "description": "A map showing the location of the music store.",
       "imageUrl": "https://images.unsplash.com/photo-1532154187607-d766ed024aac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYXAlMjBsb2NhdGlvbnxlbnwwfHx8fDE3NjQxMTQwOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "map location"
+    },
+    {
+      "id": "contact-background",
+      "description": "A background image showing musical notes on a page.",
+      "imageUrl": "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtdXNpYyUyMG5vdGVzfGVufDB8fHx8MTc2NDUzMDk0N3ww&ixlib=rb-4.1.0&q=80&w=1920",
+      "imageHint": "music notes"
     }
   ]
 }
