@@ -56,8 +56,8 @@ const Navbar = () => {
 
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <Link href="/home" className="flex items-center gap-2" prefetch={false}>
-            <GuitarLogo className="h-10 w-auto text-primary" />
-            <span className="sr-only">Muse Home</span>
+            <GuitarLogo className="h-10 w-auto" />
+            <span className="sr-only">Music Library Home</span>
           </Link>
         </div>
 

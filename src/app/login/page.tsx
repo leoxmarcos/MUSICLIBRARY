@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { Music } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -16,6 +15,7 @@ import {
 import Link from 'next/link';
 import { useAuth, useUser, initiateEmailSignIn } from '@/firebase';
 import { useToast } from '@/hooks/use-toast';
+import { GuitarLogo } from '@/components/GuitarLogo';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -58,11 +58,8 @@ export default function LoginPage() {
         <Card>
           <CardHeader className="text-center">
             <div className="mb-4 flex justify-center">
-              <Music className="h-12 w-12 text-primary" />
+              <GuitarLogo className="h-12 w-auto" />
             </div>
-            <CardTitle className="text-4xl font-bold tracking-tight">
-              Muse
-            </CardTitle>
             <CardDescription>
               Sign in to unlock your music world.
             </CardDescription>
