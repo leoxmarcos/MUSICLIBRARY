@@ -1,6 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { useUser } from '@/firebase';
 import { GuitarLogo } from '@/components/GuitarLogo';
@@ -14,6 +15,8 @@ import {
 } from '@/components/ui/carousel';
 import { Card, CardContent } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Button } from '@/components/ui/button';
+import { Facebook, Twitter, Instagram } from 'lucide-react';
 
 const newsItems = [
   {
@@ -42,6 +45,25 @@ const newsItems = [
   },
 ];
 
+const recommendedInstruments = [
+  {
+    name: 'Acoustic Guitar',
+    image: PlaceHolderImages.find((img) => img.id === 'guitar')!,
+  },
+  {
+    name: 'Grand Piano',
+    image: PlaceHolderImages.find((img) => img.id === 'piano')!,
+  },
+  {
+    name: 'Drum Kit',
+    image: PlaceHolderImages.find((img) => img.id === 'drums')!,
+  },
+  {
+    name: 'Violin',
+    image: PlaceHolderImages.find((img) => img.id === 'violin')!,
+  },
+];
+
 export default function HomePage() {
   const { user, isUserLoading } = useUser();
   const router = useRouter();
@@ -63,19 +85,53 @@ export default function HomePage() {
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
       <Navbar />
-      <main className="flex flex-1 flex-col items-center p-8 pt-24 text-center">
-        <div className="container mx-auto">
-          <GuitarLogo className="h-24 w-auto mb-4 mx-auto" />
-          <h1 className="text-5xl font-bold tracking-tight text-foreground">
-            Welcome to your Music Library
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground mx-auto">
-            Discover, organize, and immerse yourself in the world of music. You
-            are logged in as {user.email}.
-          </p>
-        </div>
+      <main className="flex flex-1 flex-col items-center pt-16 text-center">
+        {/* Welcome Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32">
+          <div className="container mx-auto px-4 md:px-6">
+            <GuitarLogo className="h-24 w-auto mb-4 mx-auto" />
+            <h1 className="text-5xl font-bold tracking-tight text-foreground">
+              Welcome to your Music Library
+            </h1>
+            <p className="mt-4 max-w-2xl text-lg text-muted-foreground mx-auto">
+              Discover, organize, and immerse yourself in the world of music.
+              You are logged in as {user.email}.
+            </p>
+          </div>
+        </section>
 
-        <section className="w-full max-w-6xl mt-16 text-left">
+        {/* Featured Banner */}
+        <section className="w-full">
+          <div className="relative h-[400px] w-full">
+            <Image
+              src={
+                PlaceHolderImages.find((img) => img.id === 'featured-banner')!
+                  .imageUrl
+              }
+              alt="New instrument arrivals"
+              fill
+              className="object-cover"
+              data-ai-hint="musical instruments"
+            />
+            <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
+              <h2 className="text-4xl font-extrabold text-primary-foreground">
+                New Instrument Arrivals
+              </h2>
+              <p className="mt-2 text-lg text-primary-foreground/90">
+                Fresh sounds just dropped. Explore the latest additions to our
+                collection.
+              </p>
+              <Link href="/catalog" passHref>
+                <Button className="mt-6 glowing-btn" size="lg">
+                  Shop Now
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Latest Updates Carousel */}
+        <section className="w-full max-w-6xl mt-16 px-4 md:px-6 text-left">
           <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
             Latest Updates
           </h2>
@@ -121,7 +177,60 @@ export default function HomePage() {
             <CarouselNext className="mr-12" />
           </Carousel>
         </section>
+
+        {/* Recommended Instruments */}
+        <section className="w-full max-w-6xl mt-16 px-4 md:px-6 text-left">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
+            Popular Instruments
+          </h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {recommendedInstruments.map((instrument) => (
+              <Link key={instrument.name} href="/catalog">
+                <Card className="group overflow-hidden transition-shadow hover:shadow-lg hover:shadow-primary/20">
+                  <CardContent className="relative p-0">
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={instrument.image.imageUrl}
+                        alt={instrument.image.description}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        data-ai-hint={instrument.image.imageHint}
+                      />
+                      <div className="absolute inset-0 bg-black/20" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="text-lg font-semibold text-card-foreground">
+                        {instrument.name}
+                      </h3>
+                      <p className="text-sm text-primary group-hover:underline">
+                        View in Catalog
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </section>
       </main>
+      <footer className="w-full bg-card mt-16 py-6">
+        <div className="container mx-auto flex flex-col items-center justify-center gap-4 px-4 md:px-6">
+          <p className="text-sm text-muted-foreground">
+            Follow us on social media
+          </p>
+          <div className="flex gap-4">
+            <Link href="#" className="text-muted-foreground hover:text-primary">
+              <Twitter className="h-6 w-6" />
+            </Link>
+            <Link href="#" className="text-muted-foreground hover:text-primary">
+              <Facebook className="h-6 w-6" />
+            </Link>
+            <Link href="#" className="text-muted-foreground hover:text-primary">
+              <Instagram className="h-6 w-6" />
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
