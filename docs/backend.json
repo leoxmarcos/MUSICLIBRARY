@@ -19,6 +19,33 @@
         "id",
         "loginId"
       ]
+    },
+    "Rental": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Rental",
+      "type": "object",
+      "description": "Represents a rented instrument by a user.",
+      "properties": {
+        "instrumentName": {
+          "type": "string",
+          "description": "The name of the rented instrument."
+        },
+        "issueDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date the instrument was issued."
+        },
+        "returnDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The expected return date of the instrument."
+        }
+      },
+      "required": [
+        "instrumentName",
+        "issueDate",
+        "returnDate"
+      ]
     }
   },
   "auth": {
@@ -44,8 +71,28 @@
             }
           ]
         }
+      },
+      {
+        "path": "/users/{userId}/rentals/{rentalId}",
+        "definition": {
+          "entityName": "Rental",
+          "schema": {
+            "$ref": "#/backend/entities/Rental"
+          },
+          "description": "Stores a user's instrument rentals. A user can only access their own rentals.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier of the user. Must match request.auth.uid."
+            },
+            {
+              "name": "rentalId",
+              "description": "The unique identifier of the rental."
+            }
+          ]
+        }
       }
     ],
-    "reasoning": "This design prioritizes simplicity and security for user authentication. It directly reflects the provided entities and focuses on path-based ownership. The `users/{userId}` collection stores user profiles.  Authorization is straightforward: users can only access their own documents in the `/users/{userId}` collection. This is enforced through path-based rules, eliminating the need for complex `get()` calls and ensuring Authorization Independence. QAPs are inherently supported as `list` operations on `/users` are generally restricted, and access to individual `/users/{userId}` documents is controlled by matching the `userId` parameter to the `request.auth.uid`. There are no collaborative features, and all user-related data is directly owned by the user, simplifying the security model."
+    "reasoning": "This design prioritizes simplicity and security for user authentication and data ownership. It directly reflects the provided entities and focuses on path-based ownership. The `users/{userId}` collection stores user profiles. The `users/{userId}/rentals` subcollection stores instrument rentals. Authorization is straightforward: users can only access their own documents in their respective `/users/{userId}` trees. This is enforced through path-based rules, eliminating the need for complex `get()` calls and ensuring Authorization Independence. QAPs are inherently supported as `list` operations are restricted to a user's own data."
   }
 }

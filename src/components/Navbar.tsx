@@ -109,7 +109,7 @@ const Navbar = () => {
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => router.push('#')}>
+                <DropdownMenuItem onClick={() => router.push('/profile')}>
                   My Profile
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
