@@ -4,30 +4,30 @@
 
 @layer base {
   :root {
-    --background: 225 100% 98%; /* Soft Pastel Blue */
-    --foreground: 240 10% 3.9%; /* Dark Blue-Gray for readability */
-    --card: 0 0% 100%; /* Clean White */
-    --card-foreground: 240 10% 3.9%;
+    --background: 40 33% 97%; /* Earthy Beige */
+    --foreground: 220 5% 30%; /* Soft Charcoal */
+    --card: 0 0% 100%;
+    --card-foreground: 220 5% 30%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 100% 60%; /* Electric Blue */
-    --primary-foreground: 0 0% 98%;
-    --secondary: 300 100% 50%; /* Magenta */
-    --secondary-foreground: 0 0% 98%;
+    --popover-foreground: 220 5% 30%;
+    --primary: 210 20% 60%; /* Misty Blue */
+    --primary-foreground: 210 20% 98%;
+    --secondary: 210 10% 85%; /* Dove Gray */
+    --secondary-foreground: 220 5% 30%;
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 220 8.9% 43.1%;
-    --accent: 270 100% 55%; /* Purple */
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 84.2% 60.2%; /* Red */
+    --accent: 210 15% 75%; /* Lighter Misty Blue */
+    --accent-foreground: 220 5% 20%;
+    --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 270 100% 55%; /* Purple for focus rings */
-    --chart-1: 240 100% 60%; /* Electric Blue */
-    --chart-2: 300 100% 50%; /* Magenta */
-    --chart-3: 270 100% 55%; /* Purple */
-    --chart-4: 0 84.2% 60.2%;
-    --chart-5: 48 96% 53%; /* Adding a yellow for variety */
+    --ring: 210 20% 60%; /* Misty Blue for focus rings */
+    --chart-1: 210 20% 60%;
+    --chart-2: 210 10% 85%;
+    --chart-3: 40 20% 70%;
+    --chart-4: 0 70% 60%;
+    --chart-5: 200 20% 75%;
     --radius: 0.5rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 10% 3.9%;
@@ -40,25 +40,25 @@
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 240 100% 70%; /* Brighter Electric Blue */
-    --primary-foreground: 210 40% 98%;
-    --secondary: 300 100% 60%; /* Brighter Magenta */
-    --secondary-foreground: 355.7 100% 97.3%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 270 100% 65%; /* Brighter Purple */
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%; /* Red */
+    --background: 220 10% 10%; /* Deep Charcoal */
+    --foreground: 210 10% 80%; /* Light Gray */
+    --card: 220 10% 15%;
+    --card-foreground: 210 10% 80%;
+    --popover: 220 10% 15%;
+    --popover-foreground: 210 10% 80%;
+    --primary: 210 25% 45%; /* Muted Slate Blue */
+    --primary-foreground: 210 20% 95%;
+    --secondary: 220 10% 25%; /* Dark Gray */
+    --secondary-foreground: 210 10% 80%;
+    --muted: 220 10% 20%;
+    --muted-foreground: 210 10% 65%;
+    --accent: 210 20% 35%; /* Darker Slate Blue */
+    --accent-foreground: 210 10% 90%;
+    --destructive: 0 50% 40%;
     --destructive-foreground: 0 0% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 270 100% 65%; /* Purple */
+    --border: 220 10% 25%;
+    --input: 220 10% 25%;
+    --ring: 210 25% 45%; /* Muted Slate Blue */
     --sidebar-background: 240 10% 3.9%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 240 100% 70%;
@@ -81,6 +81,6 @@
 
 @layer components {
   .glowing-btn {
-    @apply bg-gradient-to-r from-primary to-secondary text-primary-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-accent/50;
+    @apply bg-primary text-primary-foreground shadow-lg transition-all duration-300 hover:shadow-xl hover:shadow-primary/30;
   }
 }
