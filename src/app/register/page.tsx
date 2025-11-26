@@ -43,12 +43,12 @@ export default function RegisterPage() {
       const userRef = doc(firestore, 'users', user.uid);
       setDocumentNonBlocking(
         userRef,
-        { id: user.uid, loginId: user.email },
+        { id: user.uid, loginId: user.email, name: name || user.displayName },
         { merge: true }
       );
       router.push('/home');
     }
-  }, [user, firestore, router]);
+  }, [user, firestore, router, name]);
 
   const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();

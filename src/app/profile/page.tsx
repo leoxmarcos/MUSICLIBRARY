@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { useUser, useFirestore, useCollection, useMemoFirebase } from '@/firebase';
+import { useUser, useFirestore, useCollection, useDoc, useMemoFirebase } from '@/firebase';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { collection, deleteDoc, doc } from 'firebase/firestore';
@@ -26,10 +26,21 @@ type Rental = {
   returnDate: { seconds: number; nanoseconds: number };
 };
 
+type UserProfile = {
+  name: string;
+  email: string;
+}
+
 export default function ProfilePage() {
   const { user, isUserLoading } = useUser();
   const firestore = useFirestore();
   const [submitted, setSubmitted] = useState<string[]>([]);
+
+  const userProfileRef = useMemoFirebase(() => {
+    if (!user || !firestore) return null;
+    return doc(firestore, 'users', user.uid);
+  }, [user, firestore]);
+  const { data: userProfile, isLoading: isProfileLoading } = useDoc<UserProfile>(userProfileRef);
 
   const rentalsQuery = useMemoFirebase(() => {
     if (!user || !firestore) return null;
@@ -42,9 +53,9 @@ export default function ProfilePage() {
     error,
   } = useCollection<Rental>(rentalsQuery);
 
-  const getInitials = (email: string | null | undefined) => {
-    if (!email) return 'U';
-    return email.substring(0, 2).toUpperCase();
+  const getInitials = (name: string | null | undefined) => {
+    if (!name) return 'U';
+    return name.split(' ').map(n => n[0]).join('').substring(0,2).toUpperCase();
   };
 
   const formatDate = (timestamp: { seconds: number; nanoseconds: number }) => {
@@ -57,12 +68,14 @@ export default function ProfilePage() {
     if (!user || !firestore) return;
     setSubmitted((prev) => [...prev, rentalId]);
     setTimeout(async () => {
+      if (!user) return;
       const rentalDocRef = doc(firestore, 'users', user.uid, 'rentals', rentalId);
       await deleteDoc(rentalDocRef);
     }, 500); // Delay removal to show submitted state
   };
 
-  const isLoading = isUserLoading || areRentalsLoading;
+  const isLoading = isUserLoading || areRentalsLoading || isProfileLoading;
+  const displayName = userProfile?.name || user?.displayName || 'Music Enthusiast';
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -78,10 +91,10 @@ export default function ProfilePage() {
                   <Avatar className="h-20 w-20 border-2 border-primary">
                     <AvatarImage
                       src={user?.photoURL || ''}
-                      alt={user?.displayName || 'User'}
+                      alt={displayName}
                     />
                     <AvatarFallback className="text-2xl">
-                      {getInitials(user?.email)}
+                      {getInitials(displayName)}
                     </AvatarFallback>
                   </Avatar>
                 )}
@@ -94,7 +107,7 @@ export default function ProfilePage() {
                   ) : (
                     <>
                       <CardTitle className="text-3xl">
-                        {user?.displayName || 'Music Enthusiast'}
+                        {displayName}
                       </CardTitle>
                       <p className="text-muted-foreground">{user?.email}</p>
                     </>
