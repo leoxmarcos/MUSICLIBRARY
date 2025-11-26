@@ -33,25 +33,47 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const addToCart = (item: Instrument) => {
     let itemExists = false;
+    let quantityAvailable = true;
+
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((i) => i.id === item.id);
       if (existingItem) {
-        itemExists = true;
+        if (existingItem.quantity < item.quantity) {
+          return prevItems.map((i) =>
+            i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+          );
+        } else {
+          quantityAvailable = false;
+          return prevItems;
+        }
+      }
+      if (item.quantity > 0) {
+        return [...prevItems, { ...item, quantity: 1 }];
+      } else {
+        itemExists = true; // Prevents "added to cart" toast
+        quantityAvailable = false;
         return prevItems;
       }
-      return [...prevItems, { ...item, quantity: 1 }];
     });
 
-    if (itemExists) {
-      toast({
-        title: 'Already in cart',
-        description: `${item.name} is already in your cart.`,
-      });
+    const existingItem = cartItems.find((i) => i.id === item.id);
+
+    if(existingItem && existingItem.quantity >= item.quantity) {
+        quantityAvailable = false;
+    }
+
+
+    if (!quantityAvailable) {
+        toast({
+            variant: 'destructive',
+            title: 'Out of Stock',
+            description: `No more ${item.name}s are available.`,
+        });
     } else {
-      toast({
-        title: 'Added to cart',
-        description: `${item.name} has been added to your cart.`,
-      });
+        toast({
+            title: 'Added to cart',
+            description: `${item.name} has been added to your cart.`,
+        });
     }
   };
 
