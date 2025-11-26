@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -40,14 +41,14 @@ const Navbar = () => {
         <nav className="hidden items-center gap-6 md:flex">
           <Link
             href="/home"
-            className="text-sm font-medium transition-colors text-red-500 hover:text-red-400 hover:underline underline-offset-4"
+            className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
             prefetch={false}
           >
             Home
           </Link>
           <Link
             href="/catalog"
-            className="text-sm font-medium transition-colors text-red-500 hover:text-red-400 hover:underline underline-offset-4"
+            className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
             prefetch={false}
           >
             Instruments
@@ -65,14 +66,14 @@ const Navbar = () => {
           <nav className="hidden items-center gap-6 md:flex">
              <Link
               href="/about"
-              className="text-sm font-medium transition-colors text-red-500 hover:text-red-400 hover:underline underline-offset-4"
+              className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
               prefetch={false}
             >
               About Us
             </Link>
             <Link
               href="/contact"
-              className="text-sm font-medium transition-colors text-red-500 hover:text-red-400 hover:underline underline-offset-4"
+              className="text-sm font-medium transition-colors hover:text-primary hover:underline underline-offset-4"
               prefetch={false}
             >
               Contact

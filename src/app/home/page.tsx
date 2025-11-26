@@ -1,3 +1,4 @@
+
 'use client';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -117,7 +118,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 md:px-6">
             <MusicBookLogo className="h-24 w-auto mb-4 mx-auto" />
             <h1 className="text-5xl font-bold tracking-tight">
-              Welcome to your Music Library
+              Welcome to your Music <span className="text-primary">Library</span>
             </h1>
             <p className="mt-4 max-w-2xl text-lg text-primary-foreground/90 mx-auto">
               {welcomeMessages[currentMessageIndex]}
