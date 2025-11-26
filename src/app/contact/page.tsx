@@ -2,6 +2,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -43,6 +44,9 @@ export default function ContactPage() {
     setEmail('');
     setMessage('');
   };
+  
+  const address = "123 Harmony Lane, Melody City, Musicland 54321";
+  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
@@ -71,7 +75,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-semibold">Muse Music Library</h3>
                       <p className="text-muted-foreground">
-                        123 Harmony Lane, Melody City, Musicland 54321
+                        {address}
                       </p>
                     </div>
                   </div>
@@ -95,7 +99,9 @@ export default function ContactPage() {
                   data-ai-hint={mapImage.imageHint}
                 />
                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                    <Button variant="secondary" size="lg">View on Google Maps</Button>
+                    <Link href={googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                      <Button variant="secondary" size="lg">View on Google Maps</Button>
+                    </Link>
                  </div>
               </div>
             </div>
