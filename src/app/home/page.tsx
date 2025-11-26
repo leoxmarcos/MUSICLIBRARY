@@ -206,40 +206,6 @@ export default function HomePage() {
           </Carousel>
         </section>
 
-        {/* Instruments */}
-        <section className="w-full max-w-6xl mt-16 px-4 md:px-6 text-left">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
-            Instruments
-          </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {recommendedInstruments.map((instrument) => (
-              <Link key={instrument.name} href="/catalog">
-                <Card className="group overflow-hidden transition-shadow hover:shadow-lg hover:shadow-primary/20">
-                  <CardContent className="relative p-0">
-                    <div className="relative h-48 w-full">
-                      <Image
-                        src={instrument.image.imageUrl}
-                        alt={instrument.image.description}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        data-ai-hint={instrument.image.imageHint}
-                      />
-                      <div className="absolute inset-0 bg-black/20" />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="text-lg font-semibold text-card-foreground">
-                        {instrument.name}
-                      </h3>
-                      <p className="text-sm text-primary group-hover:underline">
-                        View in Catalog
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </section>
       </main>
       <footer className="w-full bg-card mt-16 py-6">
         <div className="container mx-auto flex flex-col items-center justify-center gap-4 px-4 md:px-6">
