@@ -18,11 +18,11 @@ const Navbar = () => {
             Home
           </Link>
           <Link
-            href="#"
+            href="/catalog"
             className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary hover:underline underline-offset-4"
             prefetch={false}
           >
-            Cart
+            Catalog
           </Link>
           <Link
             href="#"
