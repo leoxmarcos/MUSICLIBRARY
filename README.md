@@ -2,9 +2,14 @@
 # 🎶 My Music Library 🎸
 > Buy, Rent, and Manage Musical Instruments — Easy, Fast & Fun!
 <!-- Main Animated Banner -->
+<!-- 🎶 Animated Music Header -->
 <div align="center">
-  
-  <img src="https://github.com/Platane/snk/raw/output/github-contribution-grid-snake.svg" alt="snake animation" width="100%"/>
+
+<img src="https://readme-typing-svg.herokuapp.com?font=Pacifico&size=40&pause=1000&color=F77F00&center=true&vCenter=true&width=1000&height=80&lines=🎶+My+Music+Library+🎸;Buy,+Rent+%26+Manage+Musical+Instruments;Music+Meets+Technology+🎹" />
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=header"/>
+
+</div>
 
 ---
 
