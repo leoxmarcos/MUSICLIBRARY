@@ -1,19 +1,18 @@
 <!-- ================================================= -->
 <!-- 🎶 MUSICAL HERO HEADER -->
 <!-- ================================================= -->
+<!-- 🎶 Animated Music Header -->
+## 🎶 My Music Library 🎸 > Buy, Rent, and Manage Musical Instruments — Easy, Fast & Fun!
 <div align="center">
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Pacifico&size=42&pause=1200&color=FF7A18&center=true&vCenter=true&width=1000&height=90&lines=🎶+My+Music+Library+🎸;Buy,+Rent+%26+Manage+Musical+Instruments;Where+Music+Meets+Technology+🎹" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Pacifico&size=40&pause=1000&color=F77F00&center=true&vCenter=true&width=1000&height=80&lines=🎶+My+Music+Library+🎸;Buy,+Rent+%26+Manage+Musical+Instruments;Music+Meets+Technology+🎹" />
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:ff512f,100:f09819&height=140&section=header"/>
-
-<p>
-  <img src="https://img.shields.io/github/stars/your-username/my-music-library?style=for-the-badge&color=gold"/>
-  <img src="https://img.shields.io/github/forks/your-username/my-music-library?style=for-the-badge&color=orange"/>
-  <img src="https://img.shields.io/github/license/your-username/my-music-library?style=for-the-badge&color=red"/>
-</p>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=header"/>
 
 </div>
+
+ 
+
 
 ---
 
