@@ -2,7 +2,7 @@
 <!-- 🎶 MUSICAL HERO HEADER -->
 <!-- ================================================= -->
 <!-- 🎶 Animated Music Header -->
-## 🎶 My Music Library 🎸 > Buy, Rent, and Manage Musical Instruments — Easy, Fast & Fun!
+## 🎶 My Music Library 🎸 
 <div align="center">
 
 <img src="https://readme-typing-svg.herokuapp.com?font=Pacifico&size=40&pause=1000&color=F77F00&center=true&vCenter=true&width=1000&height=80&lines=🎶+My+Music+Library+🎸;Buy,+Rent+%26+Manage+Musical+Instruments;Music+Meets+Technology+🎹" />
