@@ -5,7 +5,7 @@
 ## 🎶 My Music Library 🎸 
 <div align="center">
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Pacifico&size=40&pause=1000&color=F77F00&center=true&vCenter=true&width=1000&height=80&lines=🎶+My+Music+Library+🎸;Buy,+Rent+%26+Manage+Musical+Instruments;Music+Meets+Technology+🎹" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Pacifico&size=40&pause=1000&color=2ECC71&center=true&vCenter=true&width=1000&height=80&lines=🎶+My+Music+Library+🎸;Buy,+Rent+%26+Manage+Musical+Instruments;Music+Meets+Technology+🎹" />
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=header"/>
 
